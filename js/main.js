@@ -20,14 +20,6 @@ async function init()
 {
     document.body.appendChild(container)
     
-    camera = new THREE.PerspectiveCamera
-    (
-        60,
-        window.innerWidth / window.innerHeight, 
-        0.1,
-        1000
-    )
-
     container.appendChild(renderer.domElement)
     renderer.setSize(container.innerWidth, container.innerHeight)
     renderer.xr.enabled = true
@@ -36,6 +28,8 @@ async function init()
     console.log(camera);
 
     await mindARThree.start();
+
+    container.appendChild(document.getElement("video"))
 }
 
 function StartUpdate() 
