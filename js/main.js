@@ -26,7 +26,7 @@ function StartUpdate()
     renderer.setAnimationLoop(OnUpdate)
 }
 
-function OnUpdate(timeStamp, frame) 
+function OnUpdate() 
 {
     renderer.render(scene, camera)
 }
