@@ -18,8 +18,8 @@ async function init()
     
     // Create a scene
     scene = new THREE.Scene()
-    scene.name = "myScene"
-    
+    scene.name = "ARBusinessCard"
+
     camera = new THREE.PerspectiveCamera
     (
         60, 
@@ -33,6 +33,7 @@ async function init()
         antialias: true,
         alpha: true
     })
+    
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(window.innerWidth, window.innerHeight)
     renderer.xr.enabled = true
