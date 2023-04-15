@@ -4,7 +4,9 @@ const mindARThree = new window.MINDAR.IMAGE.MindARThree({
     imageTargetSrc: "../assets/targets/targets.mind"
 });
 
-const { renderer, scene, camera } = mindARThree;
+//const { renderer, scene, camera } = mindARThree;
+
+let renderer, scene, camera;
 
 init()
 StartUpdate()
@@ -13,9 +15,30 @@ async function init()
 {
     const container = document.createElement("div")
     document.body.appendChild(container)
-    scene.name = "ARBusinessCard"
-    scene.add(camera)
+    
+    // Create a scene
+    scene = new THREE.Scene()
+    scene.name = "myScene"
+    
+    camera = new THREE.PerspectiveCamera
+    (
+        60, 
+        window.innerWidth / window.innerHeight, 
+        0.1, 
+        1000
+    )
 
+    renderer = new THREE.WebGLRenderer
+    ({
+        antialias: true,
+        alpha: true
+    })
+    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    renderer.xr.enabled = true
+    container.appendChild(renderer.domElement)
+
+    scene.add(camera)
     console.log(camera);
 
     await mindARThree.start();
