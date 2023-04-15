@@ -11,13 +11,13 @@ let camera = mindARThree;
 const scene = new THREE.Scene()
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
 const container = document.createElement("div")
+container.id = "container"
 
 init()
 StartUpdate()
 
 async function init() 
 {
-    container.id = "container"
     document.body.appendChild(container)
     
     camera = new THREE.PerspectiveCamera
