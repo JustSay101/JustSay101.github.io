@@ -7,26 +7,29 @@ const mindARThree = new window.MINDAR.IMAGE.MindARThree({
 
 //const { renderer, scene, camera } = mindARThree;
 
-let camera
+let camera = mindARThree;
 const scene = new THREE.Scene()
-const renderer = new THREE.WebGLRenderer({ antialias: true,alpha: true })
-const container = document.getElementById("container")
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+const container = document.createElement("div")
 
 init()
 StartUpdate()
 
 async function init() 
 {
-    camera = new THREE.Camera
+    container.id = "container"
+    document.body.appendChild(container)
+    
+    camera = new THREE.PerspectiveCamera
     (
         10,
         window.innerWidth / window.innerHeight, 
         0.1,
         1000
     )
-    
-    renderer.setPixelRatio(window.devicePixelRatio)
-    renderer.setSize(window.innerWidth, window.innerHeight)
+
+    container.appendChild(renderer.domElement)
+    renderer.setSize(container.innerWidth, container.innerHeight)
     renderer.xr.enabled = true
 
     scene.add(camera)
