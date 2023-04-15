@@ -40,7 +40,7 @@ async function init()
     renderer.xr.enabled = true
     container.appendChild(renderer.domElement)
 
-    //scene.add(camera)
+    scene.add(camera)
     console.log(camera);
 
     await mindARThree.start();
