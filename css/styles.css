@@ -1,0 +1,9 @@
+body{
+    background-color: transparent;
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
