@@ -4,10 +4,10 @@
 }
 
 html {
-    width: var(--doc-width);
-    height: var(--doc-height);
-    max-width: var(--doc-width);
-    max-height: var(--doc-height);
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
     margin: 0;
     padding: 0;
     overflow: hidden;
