@@ -5,18 +5,16 @@
 
 html {
     height: var(--doc-height);
-    width: 100%;
-    max-width: 100%;
-    max-height: var(--doc-height);
+    margin: 0;
+    padding: 0;
     overflow: hidden;
 }
 
 body{
     background-color: transparent;
     overflow: hidden;
-    height: var(--doc-height);
-    max-width: 100%;
-    max-height: var(--doc-height);
+    min-height: var(--doc-height);
+    min-width: 100%;
     margin: 0;
     padding: 0;
 }
@@ -27,6 +25,8 @@ body canvas{
 
 #container video[style] {
     position: relative !important;
+    min-width: 100vw !important;
+    min-height: 100vh !important;
     /*
     margin-left: auto !important;
     margin-right: auto !important;

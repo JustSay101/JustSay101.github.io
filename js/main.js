@@ -25,17 +25,17 @@ StartUpdate()
 async function init() 
 {
     document.body.appendChild(renderer.domElement)
-
+    
     camera = new THREE.PerspectiveCamera
     (
-        60, 
+        100, 
         window.innerWidth / window.innerHeight, 
         0.1, 
         1000
     )
     
-    renderer.setPixelRatio(window.devicePixelRatio)
-    renderer.setSize(window.innerWidth, window.innerHeight)
+    //renderer.setPixelRatio(window.devicePixelRatio)
+    //renderer.setSize(window.innerWidth, window.innerHeight)
 
     // Create a scene
     /*
@@ -44,7 +44,7 @@ async function init()
     */
 
     scene.add(camera)
-
+    
     await mindARThree.start()
 }
 
