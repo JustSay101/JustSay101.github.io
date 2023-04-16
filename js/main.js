@@ -33,11 +33,9 @@ async function init()
         0.1, 
         1000
     )
-
     
-
-    //renderer.setPixelRatio(window.devicePixelRatio)
-    //renderer.setSize(window.innerWidth, window.innerHeight)
+    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setSize(window.innerWidth, window.innerHeight)
 
     // Create a scene
     /*
