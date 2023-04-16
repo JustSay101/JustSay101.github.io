@@ -8,5 +8,7 @@ body{
 }
 
 #container video[style] {
-    position: inherit !important;
+    position: absolute !important;
+    left: 50vh !important;
+    top: 50vh !important;
 }
