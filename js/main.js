@@ -34,9 +34,6 @@ async function init()
         1000
     )
     
-    //renderer.setPixelRatio(window.devicePixelRatio)
-    //renderer.setSize(window.innerWidth, window.innerHeight)
-
     // Create a scene
     /*
     scene = new THREE.Scene()
