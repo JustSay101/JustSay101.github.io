@@ -22,6 +22,10 @@ body{
     padding: 0;
 }
 
+body canvas{
+    height: var(--doc-height) !important;
+}
+
 #container video[style] {
     position: relative !important;
     /*
