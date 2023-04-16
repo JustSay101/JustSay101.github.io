@@ -13,7 +13,9 @@ const mindARThree = new window.MINDAR.IMAGE.MindARThree({
     imageTargetSrc: "../assets/targets/targets.mind"
 });
 
-const { renderer, scene, camera } = mindARThree;
+const { renderer, scene } = mindARThree;
+
+let camera
 
 //let camera, renderer, scene
 
@@ -23,6 +25,16 @@ StartUpdate()
 async function init() 
 {
     document.body.appendChild(renderer.domElement)
+
+    camera = new THREE.PerspectiveCamera
+    (
+        60, 
+        window.innerWidth / window.innerHeight, 
+        0.1, 
+        1000
+    )
+
+    
 
     //renderer.setPixelRatio(window.devicePixelRatio)
     //renderer.setSize(window.innerWidth, window.innerHeight)

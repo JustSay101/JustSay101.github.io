@@ -1,14 +1,22 @@
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
 body{
     background-color: transparent;
     width: 100vh;
     height:100vh;
+    max-width: 100vh;
+    max-height: 100vh;
     overflow: hidden;
     margin: 0;
     padding: 0;
 }
 
 #container video[style] {
-    position: absolute !important;
-    left: 50vh !important;
-    top: 50vh !important;
+    display: block !important;
+    position: relative !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
