@@ -5,7 +5,8 @@ import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
 
 const container = document.createElement("div")
-    document.body.appendChild(container)
+container.id = "container"
+document.body.appendChild(container)
 
 const mindARThree = new window.MINDAR.IMAGE.MindARThree({
     container: container,
@@ -23,8 +24,8 @@ async function init()
 {
     document.body.appendChild(renderer.domElement)
 
-    renderer.setPixelRatio(window.devicePixelRatio)
-    renderer.setSize(window.innerWidth, window.innerHeight)
+    //renderer.setPixelRatio(window.devicePixelRatio)
+    //renderer.setSize(window.innerWidth, window.innerHeight)
 
     // Create a scene
     /*
