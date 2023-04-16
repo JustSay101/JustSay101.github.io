@@ -29,7 +29,7 @@ async function init()
     camera = new THREE.PerspectiveCamera
     (
         60, 
-        window.innerWidth / window.innerHeight, 
+        window.innerHeight / window.innerWidth, 
         0.1, 
         1000
     )
