@@ -2,6 +2,7 @@
     --doc-height: 100%;
    }
 
+   /*
 html {
     height: var(--doc-height);
     width: 100%;
@@ -9,10 +10,12 @@ html {
     max-height: var(--doc-height);
     overflow: hidden;
 }
+*/
 
 body{
     background-color: transparent;
     overflow: hidden;
+    height: var(--doc-height);
     max-width: 100%;
     max-height: var(--doc-height);
     margin: 0;
