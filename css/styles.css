@@ -16,8 +16,10 @@ body{
 #container video[style] {
     display: block !important;
     position: relative !important;
+    /*
     margin-left: auto !important;
     margin-right: auto !important;
     margin-top: auto !important;
     margin-bottom: auto !important;
+    */
 }
