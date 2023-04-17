@@ -12,7 +12,19 @@ async function init()
         });
         
         const { renderer, scene, camera } = mindARThree;
-    
+        
+        const geometry = new THREE.BoxGeometry(1,1,1)
+        const material = new THREE.MeshBasicMaterial({
+            color: 'green',
+            transparent: true,
+            opacity: 0.8
+        })
+        
+        const box = new THREE.Mesh(geometry, material)
+
+        const anchor = mindARThree.addAnchor(0)
+        anchor.group.add(box)
+
         await mindARThree.start()
     
         renderer.setAnimationLoop(onUpdate)
