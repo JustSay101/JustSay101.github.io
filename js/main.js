@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         const { renderer, scene, camera } = mindARThree;
     
-        await mindARThree.start()
+        //await mindARThree.start()
     
         renderer.setAnimationLoop(onUpdate)
     
