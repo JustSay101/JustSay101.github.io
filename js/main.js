@@ -4,22 +4,24 @@
 import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
 
-init()
-
-async function init() 
-{
-    const mindARThree = new window.MINDAR.IMAGE.MindARThree({
-        container: document.body,
-        imageTargetSrc: "../assets/targets/targets.mind"
-    });
+document.addEventListener("DOMContentLoaded", () => {
+    async function init() 
+    {
+        const mindARThree = new window.MINDAR.IMAGE.MindARThree({
+            container: document.body,
+            imageTargetSrc: "../assets/targets/targets.mind"
+        });
+        
+        const { renderer, scene, camera } = mindARThree;
     
-    const { renderer, scene, camera} = mindARThree;
-
-    await mindARThree.start()
-
-    renderer.setAnimationLoop(onUpdate)
-
-    function onUpdate() {
-        renderer.render(scene, camera)
-    }
-}
+        await mindARThree.start()
+    
+        renderer.setAnimationLoop(onUpdate)
+    
+        function onUpdate() {
+            renderer.render(scene, camera)
+        }
+    } 
+    
+    init()
+})

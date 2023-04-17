@@ -1,3 +1,4 @@
+/*
 html {
     width: 100%;
     height: 100vh;
@@ -5,21 +6,24 @@ html {
     max-height: 100vh;
     overflow: hidden;
 }
+*/
 
 body {
+    position: relative;
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100vh;
     max-width: 100%;
     max-height: 100vh;
-    display: flex;
-    align-content: center;
+    overflow: hidden;
 }
 
+/*
 body video[style] {
     display: block;
     position: unset !important;
     width: 100% !important;
     height: 100vh !important;
 }
+*/
