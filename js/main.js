@@ -13,7 +13,7 @@ async function init()
         
         const { renderer, scene, camera } = mindARThree;
         
-        const geometry = new THREE.BoxGeometry(1,1,1)
+        const geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2)
         const material = new THREE.MeshBasicMaterial({
             color: 'green',
             transparent: true,
