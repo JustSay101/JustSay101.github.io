@@ -4,8 +4,7 @@
 import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
 
-document.addEventListener("DOMContentLoaded", () => {
-    async function init() 
+async function init() 
     {
         const mindARThree = new window.MINDAR.IMAGE.MindARThree({
             container: document.body,
@@ -22,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             renderer.render(scene, camera)
         }
     } 
-    
+
+document.addEventListener("DOMContentLoaded", () => {
     init()
-})
+}, { once: true })
