@@ -54,7 +54,7 @@ function loadResources()
         map: textureLoader.load("../assets/textures/selfImage.jpg")
     });
 
-    linkedInModel = THREE.BoxGeometry(0.2, 0.2, 0.2)
+    linkedInModel = new THREE.BoxGeometry(0.2, 0.2, 0.2);
 
     fbxLoader.load
     (
@@ -68,7 +68,7 @@ function loadResources()
         function (file) { selfImageModel = file }
     );
     
-    linkedIn = new THREE.Mesh(BoxGeometry, linkedInMaterial);
+    linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
     //linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
     //selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
 }
