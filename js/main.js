@@ -73,8 +73,8 @@ function loadResources()
 
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
     selfImage = new THREE.Mesh(selfImageModel, linkedInMaterial);
-
-    linkedIn.rotateX(180);
+    
+    linkedIn.rotateX(3.141);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
