@@ -3,37 +3,73 @@
 
 import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
+import {FBXLoader} from 'https://unpkg.com/three@0.126.0/examples/jsm/loaders/FBXLoader.js';
+
+const fbxLoader = new FBXLoader();
+const textureLoader = new THREE.TextureLoader();
+let linkedIn, selfImage;
 
 async function init() 
+{
+    /*
+    const mindARThree = new window.MINDAR.IMAGE.MindARThree({
+        container: document.body,
+        imageTargetSrc: "../assets/targets/targets.mind"
+    });
+    */
+    
+    const mindARThree = new MindARThree({
+        container: document.body,
+        imageTargetSrc: "../assets/targets/targets.mind"
+    });
+
+    const { renderer, scene, camera } = mindARThree;
+    
+    const anchor = mindARThree.addAnchor(0);
+    
+    loadResources();
+
+    anchor.group.add(linkedIn);
+
+    await mindARThree.start();
+
+    renderer.setAnimationLoop(onUpdate);
+
+    function onUpdate()
     {
-        const mindARThree = new window.MINDAR.IMAGE.MindARThree({
-            container: document.body,
-            imageTargetSrc: "../assets/targets/targets.mind"
-        });
-        
-        const { renderer, scene, camera } = mindARThree;
-        
-        const geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2)
-        const material = new THREE.MeshBasicMaterial({
-            color: 'green',
-            transparent: true,
-            opacity: 0.8
-        })
-        
-        const box = new THREE.Mesh(geometry, material)
+        renderer.render(scene, camera);
+    }
+}
 
-        const anchor = mindARThree.addAnchor(0)
-        anchor.group.add(box)
+function loadResources()
+{
+    var linkedInModel, selfImageModel;
+    var linkedInMaterial, selfImageMaterial;
 
-        await mindARThree.start()
+    linkedInMaterial = new THREE.MeshBasicMaterial({
+        map: textureLoader.load("../assets/textures/linkedIn.png")
+    });
+
+    selfImageMaterial = new THREE.MeshBasicMaterial({
+        map: textureLoader.load("../assets/textures/selfImage.jpg")
+    });
+
+    fbxLoader.load
+    (
+        "../assets/models/linkedin.fbx",
+        function (file) { linkedInModel = file }
+    );
     
-        renderer.setAnimationLoop(onUpdate)
-    
-        function onUpdate() {
-            renderer.render(scene, camera)
-        }
-    } 
+    fbxLoader.load
+    (
+        "../assets/models/selfImage.fbx",
+        function (file) { selfImageModel = file }
+    );
+
+    linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
+    selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    init()
-}, { once: true })
+    init();
+}, { once: true });
