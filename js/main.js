@@ -27,7 +27,7 @@ async function init()
     const { renderer, scene, camera } = mindARThree;
     
     const anchor = mindARThree.addAnchor(0);
-    anchor.group.add(selfImage);
+    anchor.group.add(linkedIn);
 
     await mindARThree.start();
 
@@ -46,18 +46,18 @@ function loadResources()
 
     linkedInMaterial = new THREE.MeshBasicMaterial({
         transparent: false,
-        //map: textureLoader.load("../assets/textures/linkedIn.png")
+        map: textureLoader.load("../assets/textures/linkedIn.png")
     });
 
     selfImageMaterial = new THREE.MeshBasicMaterial({
         transparent: false,
-        //map: textureLoader.load("../assets/textures/selfImage.jpg")
+        map: textureLoader.load("../assets/textures/selfImage.jpg")
     });
 
     fbxLoader.load
     (
         "../assets/models/linkedin.fbx",
-        function (file) { linkedInModel = file }
+        function (file) { linkedIn = file }
     );
     
     fbxLoader.load
@@ -65,9 +65,9 @@ function loadResources()
         "../assets/models/selfImage.fbx",
         function (file) { selfImageModel = file }
     );
-    
-    linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
-    selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
+
+    //linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
+    //selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
