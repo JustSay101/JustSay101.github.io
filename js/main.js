@@ -11,6 +11,7 @@ let linkedIn, selfImage;
 
 async function init() 
 {
+    loadResources();
     /*
     const mindARThree = new window.MINDAR.IMAGE.MindARThree({
         container: document.body,
@@ -26,10 +27,7 @@ async function init()
     const { renderer, scene, camera } = mindARThree;
     
     const anchor = mindARThree.addAnchor(0);
-    
-    loadResources();
-
-    anchor.group.add(linkedIn);
+    anchor.group.add(selfImage);
 
     await mindARThree.start();
 
