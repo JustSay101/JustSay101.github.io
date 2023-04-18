@@ -54,7 +54,7 @@ function loadResources()
         map: textureLoader.load("../assets/textures/selfImage.jpg")
     });
 
-    linkedInModel = new THREE.BoxGeometry(0.2, 0.2, 0.01);
+    linkedInModel = new THREE.BoxGeometry(0.2, 0.2, 0.2);
     selfImageModel = new THREE.PlaneGeometry(0.2, 0.2, 0.2);
 
     /*
