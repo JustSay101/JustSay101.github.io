@@ -54,8 +54,10 @@ function loadResources()
         map: textureLoader.load("../assets/textures/selfImage.jpg")
     });
 
-    linkedInModel = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+    linkedInModel = new THREE.PlaneGeometry(0.2, 0.2, 0.2);
+    selfImageModel = new THREE.PlaneGeometry(0.2, 0.2, 0.2);
 
+    /*
     fbxLoader.load
     (
         "../assets/models/linkedin.fbx",
@@ -67,10 +69,10 @@ function loadResources()
         "../assets/models/selfImage.fbx",
         function (file) { selfImageModel = file }
     );
-    
+    */
+
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
-    //linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
-    //selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
+    selfImage = new THREE.Mesh(selfImageModel, linkedInMaterial);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
