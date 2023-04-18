@@ -35,6 +35,7 @@ async function init()
 
     function onUpdate()
     {
+        linkedIn.position.set(1, 0, 0);
         renderer.render(scene, camera);
     }
 }
@@ -56,7 +57,7 @@ function loadResources()
 
     linkedInModel = new THREE.BoxGeometry(0.2, 0.2, 0.001);
     selfImageModel = new THREE.PlaneGeometry(0.2, 0.2, 0.2);
-    
+
     /*
     fbxLoader.load
     (
@@ -70,11 +71,9 @@ function loadResources()
         function (file) { selfImageModel = file }
     );
     */
-
+    
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
     selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
-    
-    linkedIn.position.set(1, 0, 0);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
