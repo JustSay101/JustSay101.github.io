@@ -54,7 +54,7 @@ function loadResources()
         map: textureLoader.load("../assets/textures/selfImage.jpg")
     });
 
-    linkedInModel = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+    linkedInModel = new THREE.BoxGeometry(0.2, 0.2, 0.001);
     selfImageModel = new THREE.PlaneGeometry(0.2, 0.2, 0.2);
 
     /*
@@ -72,7 +72,7 @@ function loadResources()
     */
 
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
-    selfImage = new THREE.Mesh(selfImageModel, linkedInMaterial);
+    selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
     
     //linkedIn.rotateX(3.141);
 }
