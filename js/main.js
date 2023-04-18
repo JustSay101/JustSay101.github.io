@@ -35,7 +35,7 @@ async function init()
 
     function onUpdate()
     {
-        linkedIn.position.set(1, 0, 0);
+        linkedIn.position.set(0.5, 0, 0);
         renderer.render(scene, camera);
     }
 }
@@ -55,7 +55,7 @@ function loadResources()
         map: textureLoader.load("../assets/textures/selfImage.jpg")
     });
 
-    linkedInModel = new THREE.PlaneGeometry(1, 0.55);
+    linkedInModel = new THREE.PlaneGeometry(0.2, 0.2);
     selfImageModel = new THREE.PlaneGeometry(1, 0.55);
 
     /*
