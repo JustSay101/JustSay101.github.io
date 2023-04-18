@@ -65,7 +65,7 @@ function loadResources()
         "../assets/models/selfImage.fbx",
         function (file) { selfImageModel = file }
     );
-
+    
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
     selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
 }
