@@ -45,11 +45,13 @@ function loadResources()
     var linkedInMaterial, selfImageMaterial;
 
     linkedInMaterial = new THREE.MeshBasicMaterial({
-        map: textureLoader.load("../assets/textures/linkedIn.png")
+        transparent: false,
+        //map: textureLoader.load("../assets/textures/linkedIn.png")
     });
 
     selfImageMaterial = new THREE.MeshBasicMaterial({
-        map: textureLoader.load("../assets/textures/selfImage.jpg")
+        transparent: false,
+        //map: textureLoader.load("../assets/textures/selfImage.jpg")
     });
 
     fbxLoader.load
