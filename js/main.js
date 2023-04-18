@@ -56,7 +56,7 @@ function loadResources()
 
     linkedInModel = new THREE.BoxGeometry(0.2, 0.2, 0.001);
     selfImageModel = new THREE.PlaneGeometry(0.2, 0.2, 0.2);
-
+    
     /*
     fbxLoader.load
     (
@@ -74,7 +74,7 @@ function loadResources()
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
     selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
     
-    //linkedIn.rotateX(3.141);
+    linkedIn.position.set(1, 0, 0);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
