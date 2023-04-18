@@ -36,7 +36,8 @@ async function init()
     function onUpdate()
     {
         linkedIn.position.set(0.5, 0, 0);
-        linkedIn.rotateX(3.141);
+        linkedIn.scale.set(0.1, 0.1, 0.1);
+        //linkedIn.rotateX(3.141);
         renderer.render(scene, camera);
     }
 }
@@ -56,8 +57,8 @@ function loadResources()
         map: textureLoader.load("../assets/textures/selfImage.jpg")
     });
 
-    //linkedInModel = new THREE.PlaneGeometry(0.5, 0.5);
-    //selfImageModel = new THREE.PlaneGeometry(1, 0.55);
+    linkedInModel = new THREE.PlaneGeometry(0.5, 0.5);
+    selfImageModel = new THREE.PlaneGeometry(1, 0.55);
 
     
     fbxLoader.load
@@ -75,6 +76,8 @@ function loadResources()
     
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
     selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
+
+    linkedIn.scale.set(0.1, 0.1, 0.1);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
