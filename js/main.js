@@ -82,9 +82,6 @@ async function init()
 
     cssVideoObject = new CSS3DObject(videoIFrame);
     cssVideoObject.element.style.zIndex = -1;
-    //videoIFrame.addEventListener("click", onVideoClick);
-
-    //cssVideoObject.element.style.zIndex = -10;
     cssAnchor.group.add(cssVideoObject);
 
     await mindARThree.start();
@@ -95,8 +92,8 @@ async function init()
         cssVideoObject.scale.set(1.2, 1.2, 1.2);
         linkedIn.position.set(0, -0.55, 0);
         profileImage.position.set(0, 0.55, 0);
-        cssVideoObject.position.set(0, 0, 0.01);
-        YTVideoRaycastTarget.position.set(0,0,-0.01);
+        cssVideoObject.position.set(0, 0, -0.01);
+        YTVideoRaycastTarget.position.set(0,0,0.01);
         //linkedIn.scale.set(5, 5, 5);
         //linkedIn.rotateX(3.141);
         renderer.render(scene, camera);
