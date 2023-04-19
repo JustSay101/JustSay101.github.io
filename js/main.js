@@ -9,6 +9,7 @@ let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject;
 let cssRenderer, renderer, cssScene, scene, camera;
 const videoIFrame = document.getElementById("video-iframe");
 
+
 /*
 iframe.addEventListener("load", function () {
 
@@ -25,11 +26,15 @@ iframe.addEventListener("load", function () {
 });
 */
 
+console.log(videoIFrame);
+
+var paska = videoIFrame.querySelector("iframe");
+cssVideo = paska.contentWindow.getElementsByTagName('video')[0]
+window.alert(cssVideo);
+
 document.body.addEventListener ("Load", () => {
     // Now we can access the video's properties safely
-    cssVideo = videoIFrame.contentWindow.getElementsByTagName('video')[0]
-    window.alert(cssVideo);
-    console.log("Perse");
+    
 });
 
 async function init() 
