@@ -44,8 +44,8 @@ async function init()
     anchor.group.add(profileImage);
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
-    const cssObject = new CSS3DObject(document.querySelector("#video-iframe"));
-    cssAnchor.group.add(cssObject);
+    YTVideo = new CSS3DObject(document.querySelector("#video-iframe"));
+    cssAnchor.group.add(YT);
 
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
