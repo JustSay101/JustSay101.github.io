@@ -98,8 +98,8 @@ async function init()
         }
     );
 
-    linkedIn.position.set(0, -0.45, 0);
-    profileImage.position.set(-0.3, 0.5, 0);
+    linkedIn.position.set(0, -0.5, 0);
+    profileImage.position.set(-0.3, 0.45, 0);
     cssVideoObject.position.set(-0.3, -0.45, -0.01);
     YTVideoRaycastTarget.position.set(0, 0, 0.01);
 
