@@ -5,7 +5,7 @@ import { CSS3DObject } from 'https://threejs.org/examples/jsm/renderers/CSS3DRen
 const textureLoader = new THREE.TextureLoader();
 //const iframe = document.getElementById("video-iframe");
 //const videoWindow = iframe.contentWindow;
-let linkedIn, profileImage, YTVideo;
+let linkedIn, profileImage, YTVideoRaycastTarget, cssVideo;
 let cssRenderer, renderer, cssScene, scene, camera;
 
 /*
@@ -17,9 +17,9 @@ iframe.addEventListener("load", function () {
 
     var videoGeometry = new THREE.PlaneGeometry(0.6, 0.3375);
 
-    YTVideo = new THREE.Mesh(videoGeometry, videoMaterial);
+    YTVideoRaycastTarget = new THREE.Mesh(videoGeometry, videoMaterial);
 
-    anchor.group.add(YTVideo);
+    anchor.group.add(YTVideoRaycastTarget);
 
 });
 */
@@ -44,14 +44,15 @@ async function init()
     anchor.group.add(profileImage);
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
-    YTVideo = new CSS3DObject(document.querySelector("#video-iframe"));
-    cssAnchor.group.add(YTVideo);
+    cssVideo = new CSS3DObject(document.querySelector("#video-iframe"));
+    cssAnchor.group.add(cssVideo);
 
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
 
     function onUpdate()
     {
+        cssVideo.scale.set(1.2, 1.2, 1.2);
         linkedIn.position.set(0, -0.55, 0);
         profileImage.position.set(0, 0.55, 0);
         //linkedIn.scale.set(5, 5, 5);
@@ -88,15 +89,15 @@ function onClick(event)
                     console.log("Opening linkedIn");
                     window.open("https://www.linkedin.com/in/juho-tommola/");
                     break;
-                case YTVideo:
-                    console.log("Pause/play YTVideoEmbed");
-                    if (YTVideoEmbed.paused)
+                case YTVideoRaycastTarget:
+                    console.log("Pause/play YTVideoRaycastTargetEmbed");
+                    if (cssVideo.paused)
                     {
-                        YTVideoEmbed.play();
+                        cssVideo.play();
                     }
                     else
                     {
-                        YTVideoEmbed.pause();
+                        cssVideo.pause();
                     }
                     break;
             }
@@ -106,8 +107,8 @@ function onClick(event)
 
 function loadResources()
 {
-    var linkedInModel, profileImageGeometry;
-    var linkedInMaterial, profileImageMaterial;
+    var linkedInGeometry, profileImageGeometry, raycastTargetGeometry;
+    var linkedInMaterial, profileImageMaterial, raycastTargetMaterial;
 
     linkedInMaterial = new THREE.MeshBasicMaterial({
         transparent: false,
@@ -118,8 +119,15 @@ function loadResources()
         transparent: false,
         map: textureLoader.load("../assets/textures/profileImage.jpg")
     });
+    
+    raycastTargetMaterial = new THREE.MeshBasicMaterial({
+        color: "red",
+        transparent: true,
+        opacity: 0.6
+    });
 
-    linkedInModel = new THREE.CircleGeometry(0.2, 24, 0);
+    raycastTargetGeometry = new THREE.PlaneGeometry(0.5, 0.28125);
+    linkedInGeometry = new THREE.CircleGeometry(0.2, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.2, 24, 0);
 
     /*
@@ -132,7 +140,7 @@ function loadResources()
     fbxLoader.load
     (
         "../assets/models/linkedin.fbx",
-        function (file) { linkedInModel = file }
+        function (file) { linkedInGeometry = file }
     );
     
     fbxLoader.load
@@ -142,7 +150,8 @@ function loadResources()
     );
     */
     
-    linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
+    
+    linkedIn = new THREE.Mesh(linkedInGeometry, linkedInMaterial);
     profileImage = new THREE.Mesh(profileImageGeometry, profileImageMaterial);
 }
 
