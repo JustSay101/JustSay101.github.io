@@ -65,6 +65,12 @@ function playVideo()
     player.playVideo();
 }
 
+function pauseVideo() 
+{
+    player.pauseVideo();
+}
+
+
 function stopVideo() 
 {
     player.stopVideo();
@@ -150,7 +156,7 @@ function onClick(event)
                     else
                     {
                         console.log("Stop Video");
-                        stopVideo();
+                        pauseVideo();
                         isPlaying = false;
                     }
                     
