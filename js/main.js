@@ -79,7 +79,7 @@ async function init()
     videoIFrame = document.getElementById("iframe-video");
 
     cssVideoObject = new CSS3DObject(videoIFrame);
-    videoIFrame.parent = cssVideoObject;
+    cssVideoObject.element.style.zIndex = -1;
     videoIFrame.addEventListener("click", onVideoClick);
 
     //cssVideoObject.element.style.zIndex = -10;
