@@ -8,7 +8,7 @@ const textureLoader = new THREE.TextureLoader();
 let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject;
 let cssRenderer, renderer, cssScene, scene, camera;
 const videoIFrame = document.getElementById("player");
-
+const cssVideo = videoIFrame.querySelector("video");
 
 /*
 iframe.addEventListener("load", function () {
@@ -44,7 +44,7 @@ async function init()
     const anchor = mindARThree.addAnchor(0);
     anchor.group.add(linkedIn);
     anchor.group.add(profileImage);
-    //anchor.group.add(YTVideoRaycastTarget);
+    anchor.group.add(YTVideoRaycastTarget);
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
     cssVideoObject = new CSS3DObject(videoIFrame);
