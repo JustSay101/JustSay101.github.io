@@ -19,6 +19,10 @@ body {
     overflow: hidden;
 }
 
+#video-iframe {
+    display: none;
+  }
+
 /*
 body video[style] {
     display: block;
