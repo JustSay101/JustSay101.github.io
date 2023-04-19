@@ -33,8 +33,6 @@ async function init()
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
 
-    window.addEventListener("click", onClick);
-
     YTVideoEmbed.play();
 
     function onUpdate()
@@ -55,13 +53,9 @@ function onClick(event)
 {
     var raycaster = new THREE.Raycaster();
     var mouse = new THREE.Vector2();
-    var isTouch = event.type.startsWith("touch");
 
-    if (isTouch)
-    {
-        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    }
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
     console.log(mouse);
 
@@ -144,6 +138,5 @@ function loadResources()
 
 document.addEventListener("DOMContentLoaded", () => {
     init();
-
-    //window.addEventListener("click", onClick);
+    window.addEventListener("click", onClick);
 }, { once: true });
