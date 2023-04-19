@@ -10,15 +10,10 @@ let renderer, scene, camera;
 
 const video = document.createElement("video");
 video.src = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-video.crossOrigin = 'anonymous';
+video.crossorigin = 'anonymous';
 
 async function init() 
 {
-    if (screen.orientation)
-    {
-        screen.orientation.lock("portrait");
-    }
-
     loadResources();
     /*
     const mindARThree = new window.MINDAR.IMAGE.MindARThree({
