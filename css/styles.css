@@ -19,7 +19,7 @@ body {
     overflow: hidden;
 }
 
-.player {
+.iframe-video {
     visibility: hidden;
     pointer-events: none;
 }

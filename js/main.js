@@ -90,12 +90,12 @@ async function init()
     anchor.group.add(YTVideoRaycastTarget);
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
-    videoIFrame = document.getElementById("player");
+    videoIFrame = document.getElementById("iframe-video");
     cssVideoObject = new CSS3DObject(videoIFrame);
     //cssVideoObject.element.style.zIndex = -10;
     cssAnchor.group.add(cssVideoObject);
 
-    console.log(videoIFrame);
+    console.log(videoIFrame)
 
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
