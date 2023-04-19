@@ -8,10 +8,13 @@ const textureLoader = new THREE.TextureLoader();
 let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject;
 let cssRenderer, renderer, cssScene, scene, camera;
 const videoIFrame = document.getElementById("player");
-const cssVideo = videoIFrame.querySelector("video");
+let player;
 
-/*
-iframe.addEventListener("load", function () {
+
+videoIFrame.addEventListener("load", function () {
+
+    videoWindow = videoIFrame.contentWindow;
+    cssVideo = videoIFrame.contentWindow.querySelector("video");
 
     var videoMaterial = new THREE.MeshBasicMaterial({
         map: new THREE.VideoTexture(videoWindow.getElementsByTagName("video")[0])
@@ -24,7 +27,64 @@ iframe.addEventListener("load", function () {
     anchor.group.add(YTVideoRaycastTarget);
 
 });
-*/
+
+// 2. This code loads the IFrame Player API code asynchronously.
+loadPlayer();
+  
+  function loadPlayer() { 
+    if (typeof(YT) == 'undefined' || typeof(YT.Player) == 'undefined') {
+  
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  
+      window.onYouTubePlayerAPIReady = function() {
+        onYouTubePlayer();
+      };
+  
+    } else {
+  
+      onYouTubePlayer();
+  
+    }
+  }
+  
+  
+  function onYouTubePlayer() {
+    player = new YT.Player('player', {
+      height: '490',
+      width: '880',
+      videoId: "hzLdZWIeq3c",
+      playerVars: { controls:1, showinfo: 0, rel: 0, showsearch: 0, iv_load_policy: 3 }
+    });
+  }
+  
+var done = false;
+
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+    // setTimeout(stopVideo, 6000);
+    done = true;
+    } else if (event.data == YT.PlayerState.ENDED) {
+    location.reload();
+    }
+}
+
+function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+
+function playVideo() 
+{
+    player.playVideo();
+}
+
+function stopVideo() 
+{
+    player.stopVideo();
+}
 
 async function init() 
 {
@@ -91,12 +151,14 @@ function onClick(event)
             {
                 case linkedIn:
                     console.log("Opening linkedIn");
-                    window.open("https://www.linkedin.com/in/juho-tommola/");
+                    //window.open("https://www.linkedin.com/in/juho-tommola/");
                     break;
                 case YTVideoRaycastTarget:
                     console.log("Pause/play Video");
-                    
-                    cssVideo.playVideo();
+                    if (YT.PlayerState.PLAYING)
+                    {
+                       playVideo();
+                    }
                     
                     break;
             }
