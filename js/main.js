@@ -3,32 +3,11 @@ import { MindARThree } from 'mindar-image-three';
 import { CSS3DObject } from 'https://threejs.org/examples/jsm/renderers/CSS3DRenderer.js';
 
 const textureLoader = new THREE.TextureLoader();
-//const iframe = document.getElementById("video-iframe");
-//const videoWindow = iframe.contentWindow;
 let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject;
 let cssRenderer, renderer, cssScene, scene, camera;
 let videoIFrame;
 let player;
 let isPlaying = false;
-
-/*
-videoIFrame.addEventListener("load", function () {
-
-    videoWindow = videoIFrame.contentWindow;
-    cssVideo = videoIFrame.contentWindow.querySelector("video");
-
-    var videoMaterial = new THREE.MeshBasicMaterial({
-        map: new THREE.VideoTexture(videoWindow.getElementsByTagName("video")[0])
-    });
-
-    var videoGeometry = new THREE.PlaneGeometry(0.6, 0.3375);
-
-    YTVideoRaycastTarget = new THREE.Mesh(videoGeometry, videoMaterial);
-
-    anchor.group.add(YTVideoRaycastTarget);
-
-});
-*/
 
 loadPlayer();
   
@@ -94,15 +73,17 @@ async function init()
     const anchor = mindARThree.addAnchor(0);
     anchor.group.add(linkedIn);
     anchor.group.add(profileImage);
-    anchor.group.add(YTVideoRaycastTarget);
+    //anchor.group.add(YTVideoRaycastTarget);
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
     videoIFrame = document.getElementById("iframe-video");
+
     cssVideoObject = new CSS3DObject(videoIFrame);
+    videoIFrame.parent = cssVideoObject;
+    cssVideoObject.element.onClick = onVideoClick;
+
     //cssVideoObject.element.style.zIndex = -10;
     cssAnchor.group.add(cssVideoObject);
-
-    console.log(videoIFrame)
 
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
@@ -123,6 +104,23 @@ async function init()
     onClick event function to check if the tapped position intesects with any object.
     This function also checks what was intersected, and then executes functionality depending on that.
 */
+
+function onVideoClick()
+{
+    if (!isPlaying)
+    {
+        console.log("Play Video");
+        playVideo();
+        isPlaying = true;
+    }
+    else
+    {
+        console.log("Stop Video");
+        pauseVideo();
+        isPlaying = false;
+    }
+}
+
 function onClick(event)
 {
     var raycaster = new THREE.Raycaster();
@@ -147,6 +145,7 @@ function onClick(event)
                     //window.open("https://www.linkedin.com/in/juho-tommola/");
                     break;
                 case YTVideoRaycastTarget:
+                    /*
                     if (!isPlaying)
                     {
                         console.log("Play Video");
@@ -159,7 +158,7 @@ function onClick(event)
                         pauseVideo();
                         isPlaying = false;
                     }
-                    
+                    */
                     break;
             }
         });
