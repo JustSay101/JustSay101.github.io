@@ -71,12 +71,14 @@ function onClick(event)
 
     if (intersects.length > 0)
     {
-        switch (intersects[0])
-        {
-            case linkedIn:
-                window.open("https://www.linkedin.com/in/juho-tommola/");
-                break;
-        }
+        intersects.forEach(element => {
+            switch (element)
+            {
+                case linkedIn:
+                    window.open("https://www.linkedin.com/in/juho-tommola/");
+                    break;
+            }
+        });
     }
 }
 
