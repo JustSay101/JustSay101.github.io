@@ -25,6 +25,7 @@ async function init()
     
     const anchor = mindARThree.addAnchor(0);
     anchor.group.add(linkedIn);
+    anchor.group.add(profileImage);
 
     await mindARThree.start();
 
@@ -32,7 +33,8 @@ async function init()
 
     function onUpdate()
     {
-        //linkedIn.position.set(0.5, 0, 0);
+        linkedIn.position.set(0, -1, 0);
+        profileImage.position.set(0, 1, 0);
         //linkedIn.scale.set(5, 5, 5);
         //linkedIn.rotateX(3.141);
         renderer.render(scene, camera);
