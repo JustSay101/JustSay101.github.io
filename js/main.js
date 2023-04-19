@@ -101,14 +101,9 @@ function onClick(event)
                     break;
                 case YTVideoRaycastTarget:
                     console.log("Pause/play Video");
-                    if (cssVideo.paused)
-                    {
-                        cssVideo.play();
-                    }
-                    else
-                    {
-                        cssVideo.pause();
-                    }
+                    
+                    cssVideo.play();
+                    
                     break;
             }
         });
