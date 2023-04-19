@@ -99,7 +99,7 @@ async function init()
     );
 
     linkedIn.position.set(0, -0.45, 0);
-    profileImage.position.set(-0.3, 0.45, 0);
+    profileImage.position.set(-0.3, 0.5, 0);
     cssVideoObject.position.set(-0.3, -0.45, -0.01);
     YTVideoRaycastTarget.position.set(0, 0, 0.01);
 
@@ -189,7 +189,7 @@ function loadResources()
     });
 
     raycastTargetGeometry = new THREE.PlaneGeometry(0.8, 0.45);
-    linkedInGeometry = new THREE.CircleGeometry(0.1, 24, 0);
+    linkedInGeometry = new THREE.CircleGeometry(0.2, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.1, 24, 0);
     
     YTVideoRaycastTarget = new THREE.Mesh(raycastTargetGeometry, raycastTargetMaterial);
