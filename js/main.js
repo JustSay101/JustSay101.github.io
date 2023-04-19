@@ -11,6 +11,7 @@ const YTVideoEmbed = document.createElement("Video");
 YTVideoEmbed.src = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 YTVideoEmbed.crossorigin = "anonymous";
 document.body.appendChild(YTVideoEmbed);
+const videoTexture = new THREE.VideoTexture(YTVideoEmbed);
 
 async function init() 
 {
@@ -29,8 +30,6 @@ async function init()
     anchor.group.add(linkedIn);
     anchor.group.add(profileImage);
     anchor.group.add(YTVideo);
-
-    const videoTexture = new THREE.VideoTexture(YTVideoEmbed);
 
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
