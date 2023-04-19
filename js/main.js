@@ -42,6 +42,7 @@ async function init()
     const anchor = mindARThree.addAnchor(0);
     anchor.group.add(linkedIn);
     anchor.group.add(profileImage);
+    anchor.group.add(YTVideoRaycastTarget);
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
     cssVideo = new CSS3DObject(document.querySelector("#video-iframe"));
@@ -127,7 +128,7 @@ function loadResources()
         opacity: 0.6
     });
 
-    raycastTargetGeometry = new THREE.PlaneGeometry(1, 1);
+    raycastTargetGeometry = new THREE.PlaneGeometry(0.5, 0.28125);
     linkedInGeometry = new THREE.CircleGeometry(0.2, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.2, 24, 0);
 
