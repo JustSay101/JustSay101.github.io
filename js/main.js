@@ -103,10 +103,10 @@ async function init()
     function onUpdate()
     {
         profileName.scale.set(0.01, 0.01, 0.01);
-        profileName.position.set(0.3, 0.45, 0);
+        profileName.position.set(0.2, 0.45, 0);
         linkedIn.position.set(0.4, -0.45, 0);
         profileImage.position.set(-0.3, 0.45, 0);
-        cssVideoObject.position.set(0, 0, -0.01);
+        cssVideoObject.position.set(-0.3, -0.45, -0.01);
         YTVideoRaycastTarget.position.set(0,0,0.01);
         //linkedIn.scale.set(5, 5, 5);
         //linkedIn.rotateX(3.141);
