@@ -52,8 +52,8 @@ loadPlayer();
   
   function onYouTubePlayer() {
     player = new YT.Player('player', {
-      height: '490',
-      width: '880',
+      height: '360',
+      width: '640',
       videoId: "hzLdZWIeq3c",
       playerVars: { controls:1, showinfo: 0, rel: 0, showsearch: 0, iv_load_policy: 3 }
     });
