@@ -33,8 +33,8 @@ async function init()
 
     function onUpdate()
     {
-        linkedIn.position.set(0, -1, 0);
-        profileImage.position.set(0, 1, 0);
+        linkedIn.position.set(0, -0.3, 0);
+        profileImage.position.set(0, 0.3, 0);
         //linkedIn.scale.set(5, 5, 5);
         //linkedIn.rotateX(3.141);
         renderer.render(scene, camera);
@@ -56,8 +56,8 @@ function loadResources()
         map: textureLoader.load("../assets/textures/profileImage.jpg")
     });
 
-    linkedInModel = new THREE.CircleGeometry(0.1, 24, 0);
-    profileImageGeometry = new THREE.PlaneGeometry(0.1, 0.1);
+    linkedInModel = new THREE.CircleGeometry(0.3, 24, 0);
+    profileImageGeometry = new THREE.PlaneGeometry(0.3, 0.3);
 
     /*
         LEAVE THIS PART COMMENTED
