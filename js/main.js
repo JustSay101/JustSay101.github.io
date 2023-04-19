@@ -7,7 +7,7 @@ const textureLoader = new THREE.TextureLoader();
 //const videoWindow = iframe.contentWindow;
 let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject;
 let cssRenderer, renderer, cssScene, scene, camera;
-const videoIFrame = document.getElementById("video-iframe");
+const videoIFrame = document.getElementById("player");
 
 
 /*
@@ -27,15 +27,6 @@ iframe.addEventListener("load", function () {
 */
 
 console.log(videoIFrame);
-
-//var paska = videoIFrame.querySelector("iframe");
-//cssVideo = paska.contentWindow.getElementsByTagName('video')[0]
-//window.alert(cssVideo);
-
-document.body.addEventListener ("Load", () => {
-    // Now we can access the video's properties safely
-    
-});
 
 async function init() 
 {
