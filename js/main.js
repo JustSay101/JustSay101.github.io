@@ -39,7 +39,7 @@ function onYouTubePlayer()
     player = new YT.Player('player', {
         height: '360',
         width: '640',
-        videoId: "hzLdZWIeq3c",
+        videoId: "qBKvpgho4ok",
         playerVars: { controls:1, showinfo: 0, rel: 0, showsearch: 0, iv_load_policy: 3 }
     });
 }
