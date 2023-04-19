@@ -96,7 +96,7 @@ function onClick(event)
                 case YTVideoRaycastTarget:
                     console.log("Pause/play Video");
                     
-                    cssVideo.play();
+                    cssVideo.playVideo();
                     
                     break;
             }
