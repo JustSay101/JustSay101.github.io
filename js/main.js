@@ -90,8 +90,8 @@ async function init()
     function onUpdate()
     {
         cssVideoObject.scale.set(1.2, 1.2, 1.2);
-        linkedIn.position.set(0, -0.55, 0);
-        profileImage.position.set(0, 0.55, 0);
+        linkedIn.position.set(0, -0.45, 0);
+        profileImage.position.set(0, 0.45, 0);
         cssVideoObject.position.set(0, 0, -0.01);
         YTVideoRaycastTarget.position.set(0,0,0.01);
         //linkedIn.scale.set(5, 5, 5);
