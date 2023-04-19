@@ -7,6 +7,7 @@ const textureLoader = new THREE.TextureLoader();
 //const videoWindow = iframe.contentWindow;
 let linkedIn, profileImage, YTVideoRaycastTarget, cssVideo;
 let cssRenderer, renderer, cssScene, scene, camera;
+const touchCanvas = document.getElementById("touchCanvas");
 
 /*
 iframe.addEventListener("load", function () {
@@ -157,5 +158,5 @@ function loadResources()
 
 document.addEventListener("DOMContentLoaded", () => {
     init();
-    window.addEventListener("click", onClick);
+    touchCanvas.addEventListener("click", onClick);
 }, { once: true });
