@@ -102,7 +102,7 @@ async function init()
 
     function onUpdate()
     {
-        profileName.scale.set(0.05, 0.05, 0.05);
+        profileName.scale.set(0.01, 0.01, 0.01);
         linkedIn.position.set(0, -0.45, 0);
         profileImage.position.set(0, 0.45, 0);
         cssVideoObject.position.set(0, 0, -0.01);
@@ -189,28 +189,6 @@ function loadResources()
     raycastTargetGeometry = new THREE.PlaneGeometry(0.8, 0.45);
     linkedInGeometry = new THREE.CircleGeometry(0.1, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.1, 24, 0);
-
-    //console.log(profileName);
-
-    /*
-        LEAVE THIS PART COMMENTED
-
-        LOADED CUSTOM FBX MODELS DO NOT RENDER FOR UNKOWN REASONS.
-        USE BASIC THREE.js GEOMETRY AS SUBSTITUTE.
-    */
-    /*
-    fbxLoader.load
-    (
-        "../assets/models/linkedin.fbx",
-        function (file) { linkedInGeometry = file }
-    );
-    
-    fbxLoader.load
-    (
-        "../assets/models/profileImage.fbx",
-        function (file) { profileImageGeometry = file }
-    );
-    */
     
     YTVideoRaycastTarget = new THREE.Mesh(raycastTargetGeometry, raycastTargetMaterial);
     linkedIn = new THREE.Mesh(linkedInGeometry, linkedInMaterial);
