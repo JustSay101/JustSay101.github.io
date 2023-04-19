@@ -81,7 +81,7 @@ async function init()
     videoIFrame = document.getElementById("iframe-video");
 
     cssVideoObject = new CSS3DObject(videoIFrame);
-    cssVideoObject.element.style.zIndex = -1;
+    cssVideoObject.element.style.pointerEvents = 'none';
     cssAnchor.group.add(cssVideoObject);
 
     await mindARThree.start();
