@@ -5,7 +5,7 @@ import { CSS3DObject } from 'https://threejs.org/examples/jsm/renderers/CSS3DRen
 const textureLoader = new THREE.TextureLoader();
 //const iframe = document.getElementById("video-iframe");
 //const videoWindow = iframe.contentWindow;
-let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject, cssVideo;
+let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject, cssVideo, videoIFrame;
 let cssRenderer, renderer, cssScene, scene, camera;
 const touchCanvas = document.getElementById("touchCanvas");
 
@@ -46,11 +46,13 @@ async function init()
     anchor.group.add(YTVideoRaycastTarget);
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
-    cssVideoObject = new CSS3DObject(document.querySelector("#video-iframe"));
-    cssVideo = document.getElementById("video");
+
+    videoIFrame = document.querySelector("#video-iframe");
+    cssVideoObject = new CSS3DObject(videoIFrame);
+    cssVideo = videoIFrame.querySelector("video");
     cssVideoObject.element.style.zIndex = -10;
     cssAnchor.group.add(cssVideoObject);
-
+    
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
 
