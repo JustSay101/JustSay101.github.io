@@ -5,9 +5,10 @@ import { CSS3DObject } from 'https://threejs.org/examples/jsm/renderers/CSS3DRen
 const textureLoader = new THREE.TextureLoader();
 //const iframe = document.getElementById("video-iframe");
 //const videoWindow = iframe.contentWindow;
-let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject, cssVideo, videoIFrame;
+let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject;
 let cssRenderer, renderer, cssScene, scene, camera;
-const touchCanvas = document.getElementById("touchCanvas");
+const videoIFrame = document.querySelector("#video-iframe");
+const cssVideo = videoIFrame.querySelector("video");
 
 /*
 iframe.addEventListener("load", function () {
@@ -46,13 +47,10 @@ async function init()
     anchor.group.add(YTVideoRaycastTarget);
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
-
-    videoIFrame = document.querySelector("#video-iframe");
     cssVideoObject = new CSS3DObject(videoIFrame);
-    cssVideo = videoIFrame.querySelector("video");
     cssVideoObject.element.style.zIndex = -10;
     cssAnchor.group.add(cssVideoObject);
-    
+
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
 
