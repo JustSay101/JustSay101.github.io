@@ -102,7 +102,7 @@ async function init()
 
     function onUpdate()
     {
-        cssVideoObject.scale.set(1.2, 1.2, 1.2);
+        profileName.scale.set(0.2, 0.2, 0.2);
         linkedIn.position.set(0, -0.45, 0);
         profileImage.position.set(0, 0.45, 0);
         cssVideoObject.position.set(0, 0, -0.01);
