@@ -21,6 +21,7 @@ body {
 
 .player {
     visibility: hidden;
+    pointer-events: all;
 }
 
 #video-iframe {
