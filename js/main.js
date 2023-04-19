@@ -80,7 +80,7 @@ async function init()
 
     cssVideoObject = new CSS3DObject(videoIFrame);
     videoIFrame.parent = cssVideoObject;
-    cssVideoObject.element.addEventListener("click", onVideoClick);
+    videoIFrame.addEventListener("click", onVideoClick);
 
     //cssVideoObject.element.style.zIndex = -10;
     cssAnchor.group.add(cssVideoObject);
