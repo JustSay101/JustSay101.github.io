@@ -6,7 +6,7 @@ let linkedIn, profileImage, YTVideo;
 let renderer, scene, camera;
 
 const YTVideoEmbed = document.createElement("Video");
-YTVideoEmbed.src = "https://www.youtube.com/embed/dQw4w9WgXcQ"
+YTVideoEmbed.src = "https://www.youtube.com/148e5644-a86a-4a5a-ad24-10f3e6565fe7"
 YTVideoEmbed.crossorigin = "anonymous";
 document.body.appendChild(YTVideoEmbed);
 
@@ -50,14 +50,14 @@ async function init()
 function onClick(event)
 {
     var raycaster = new THREE.Raycaster();
-    var mouse = new THREE.Vector2();
+    var touchPosition = new THREE.Vector2();
 
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    touchPosition.x = (event.clientX / window.innerWidth) * 2 - 1;
+    touchPosition.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-    console.log(mouse);
+    console.log(touchPosition);
 
-    raycaster.setFromCamera(mouse, camera);
+    raycaster.setFromCamera(touchPosition, camera);
 
     var intersects = raycaster.intersectObjects(scene.children, true);
 
