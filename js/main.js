@@ -4,24 +4,19 @@ import {FBXLoader} from 'https://unpkg.com/three@0.126.0/examples/jsm/loaders/FB
 
 const fbxLoader = new FBXLoader();
 const textureLoader = new THREE.TextureLoader();
-let linkedIn, profileImage;
+let linkedIn, profileImage, YTVideo;
 let canvas = document.getElementById("canvas");
 let renderer, scene, camera;
 
 const YTVideoEmbed = document.createElement("Video");
 YTVideoEmbed.src = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 YTVideoEmbed.crossorigin = 'anonymous';
+document.body.appendChild(YTVideoEmbed);
 
 async function init() 
 {
     loadResources();
-    /*
-    const mindARThree = new window.MINDAR.IMAGE.MindARThree({
-        container: document.body,
-        imageTargetSrc: "../assets/targets/targets.mind"
-    });
-    */
-    
+
     const mindARThree = new MindARThree({
         container: document.body,
         imageTargetSrc: "../assets/targets/targets.mind"
@@ -34,6 +29,7 @@ async function init()
     const anchor = mindARThree.addAnchor(0);
     anchor.group.add(linkedIn);
     anchor.group.add(profileImage);
+    anchor.group.add(YTVideo);
 
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
@@ -99,8 +95,8 @@ function onClick(event)
 
 function loadResources()
 {
-    var linkedInModel, profileImageGeometry;
-    var linkedInMaterial, profileImageMaterial;
+    var linkedInModel, profileImageGeometry, videoGeometry;
+    var linkedInMaterial, profileImageMaterial, videoMaterial;
 
     linkedInMaterial = new THREE.MeshBasicMaterial({
         transparent: false,
@@ -112,6 +108,11 @@ function loadResources()
         map: textureLoader.load("../assets/textures/profileImage.jpg")
     });
 
+    videoMaterial = new THREE.MeshBasicMaterial({
+        map: new THREE.VideoTexture(YTVideoEmbed)
+    });
+
+    videoGeometry = new THREE.PlaneGeometry(0.5, 0.28125);
     linkedInModel = new THREE.CircleGeometry(0.2, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.2, 24, 0);
 
@@ -137,6 +138,7 @@ function loadResources()
     
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
     profileImage = new THREE.Mesh(profileImageGeometry, profileImageMaterial);
+    YTVideo = new THREE.Mesh(videoGeometry, videoMaterial);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
