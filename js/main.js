@@ -1,13 +1,10 @@
-//import * as THREE from "../libs/three.js-r132/build/three.module.js"
-//import '../node_modules/mind-ar/dist/mindar-image-aframe.prod.js'
-
 import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
 import {FBXLoader} from 'https://unpkg.com/three@0.126.0/examples/jsm/loaders/FBXLoader.js';
 
 const fbxLoader = new FBXLoader();
 const textureLoader = new THREE.TextureLoader();
-let linkedIn, selfImage;
+let linkedIn, profileImage;
 
 async function init() 
 {
@@ -44,22 +41,28 @@ async function init()
 
 function loadResources()
 {
-    var linkedInModel, selfImageModel;
-    var linkedInMaterial, selfImageMaterial;
+    var linkedInModel, profileImageGeometry;
+    var linkedInMaterial, profileImageMaterial;
 
     linkedInMaterial = new THREE.MeshBasicMaterial({
         transparent: false,
         map: textureLoader.load("../assets/textures/linkedIn.png")
     });
 
-    selfImageMaterial = new THREE.MeshBasicMaterial({
+    profileImageMaterial = new THREE.MeshBasicMaterial({
         transparent: false,
-        map: textureLoader.load("../assets/textures/selfImage.jpg")
+        map: textureLoader.load("../assets/textures/profileImage.jpg")
     });
 
-    linkedInModel = new THREE.CircleGeometry(0.5, 24, 0);
-    selfImageModel = new THREE.CircleGeometry(1, 0.55);
+    linkedInModel = new THREE.CircleGeometry(0.1, 24, 0);
+    profileImageGeometry = new THREE.PlaneGeometry(0.1, 0.1);
 
+    /*
+        LEAVE THIS PART COMMENTED
+
+        LOADED CUSTOM FBX MODELS DO NOT RENDER FOR UNKOWN REASONS.
+        USE BASIC THREE.js GEOMETRY AS SUBSTITUTE.
+    */
     /*
     fbxLoader.load
     (
@@ -69,15 +72,13 @@ function loadResources()
     
     fbxLoader.load
     (
-        "../assets/models/selfImage.fbx",
-        function (file) { selfImageModel = file }
+        "../assets/models/profileImage.fbx",
+        function (file) { profileImageGeometry = file }
     );
     */
     
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
-    selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
-
-    linkedIn.scale.set(0.1, 0.1, 0.1);
+    profileImage = new THREE.Mesh(profileImageGeometry, profileImageMaterial);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
