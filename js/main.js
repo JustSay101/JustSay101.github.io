@@ -3,17 +3,18 @@ import { MindARThree } from 'mindar-image-three';
 
 const textureLoader = new THREE.TextureLoader();
 const iframe = document.getElementById("video-iframe");
-let videoElement;
+const videoWindow = iframe.contentWindow;
 let linkedIn, profileImage, YTVideo;
 let renderer, scene, camera;
 
-iframe.addEventListener("load", function () {
-    let contentWindow = (iframe.contentWindow || iframe.contentDocument)
+iframe.addEventListener('load', () => {
+    videoWindow.postMessage('ready', '*');
+});
 
-    videoElement = iframe.contentWindow.getElementsByTag("video")[0];
-    
+iframe.addEventListener("load", function () {
+
     var videoMaterial = new THREE.MeshBasicMaterial({
-        map: new THREE.VideoTexture(videoElement)
+        map: new THREE.VideoTexture(videoWindow.getElementsByTagName("video")[0])
     });
 
     var videoGeometry = new THREE.PlaneGeometry(0.6, 0.3375);
@@ -22,7 +23,32 @@ iframe.addEventListener("load", function () {
 
     anchor.group.add(YTVideo);
 
-    console.log("Video done");
+});
+
+function playVideo() 
+{
+    videoWindow.postMessage("play", '*');
+}
+  
+function pauseVideo()
+{
+    videoWindow.postMessage("pause", '*');
+}
+  
+window.addEventListener("message", event => {
+    
+    if (event.source === videoWindow) 
+    {
+        switch (event.data)
+        {
+            case "ready":
+                break;
+            case "play":
+                break;
+            case "pause":
+                break;
+        }
+    }
 });
 
 async function init() 
