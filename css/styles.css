@@ -24,15 +24,6 @@ body {
     pointer-events: none;
 }
 
-#video-iframe {
-    height: 1000px;
-    width: 1000px;
-    visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
 .touchCanvas{
     width: 100%;
     height: 100vh;

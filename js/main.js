@@ -80,7 +80,7 @@ async function init()
 
     cssVideoObject = new CSS3DObject(videoIFrame);
     videoIFrame.parent = cssVideoObject;
-    cssVideoObject.element.onClick = onVideoClick;
+    cssVideoObject.element.addEventListener("click", onVideoClick);
 
     //cssVideoObject.element.style.zIndex = -10;
     cssAnchor.group.add(cssVideoObject);
@@ -142,7 +142,7 @@ function onClick(event)
             {
                 case linkedIn:
                     console.log("Opening linkedIn");
-                    //window.open("https://www.linkedin.com/in/juho-tommola/");
+                    window.open("https://www.linkedin.com/in/juho-tommola/");
                     break;
                 case YTVideoRaycastTarget:
                     /*
@@ -187,8 +187,8 @@ function loadResources()
     });
 
     raycastTargetGeometry = new THREE.PlaneGeometry(1, 1);
-    linkedInGeometry = new THREE.CircleGeometry(0.2, 24, 0);
-    profileImageGeometry = new THREE.CircleGeometry(0.2, 24, 0);
+    linkedInGeometry = new THREE.CircleGeometry(0.15, 24, 0);
+    profileImageGeometry = new THREE.CircleGeometry(0.15, 24, 0);
 
     /*
         LEAVE THIS PART COMMENTED
