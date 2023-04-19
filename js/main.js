@@ -54,7 +54,7 @@ function onClick(event)
 
     touchPosition.x = (event.clientX / window.innerWidth) * 2 - 1;
     touchPosition.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
+    
     console.log(touchPosition);
 
     raycaster.setFromCamera(touchPosition, camera);
@@ -105,7 +105,7 @@ function loadResources()
         map: new THREE.VideoTexture(YTVideoEmbed)
     });
 
-    videoGeometry = new THREE.PlaneGeometry(0.5, 0.28125);
+    videoGeometry = new THREE.PlaneGeometry(0.6, 0.3375);
     linkedInModel = new THREE.CircleGeometry(0.2, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.2, 24, 0);
 
