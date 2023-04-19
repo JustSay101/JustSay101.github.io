@@ -10,11 +10,11 @@ let cssRenderer, renderer, cssScene, scene, camera;
 const videoIFrame = document.querySelector("#video-iframe");
 let cssVideo;
 
-videoIFrame.addEventListener('load', function() {
+window.onload = function() {
     // Now we can access the video's properties safely
-    window.alert("Perse")
-    cssVideo = document.querySelector("#video-iframe video");
-  });
+    cssVideo = document.querySelector("#video-iframe iframe");
+    window.alert(cssVideo);
+  };
 
 /*
 iframe.addEventListener("load", function () {
@@ -134,7 +134,7 @@ function loadResources()
         color: "red",
     });
 
-    raycastTargetGeometry = new THREE.PlaneGeometry(1, 1);
+    raycastTargetGeometry = new THREE.PlaneGeometry(0.5, 0,28125);
     linkedInGeometry = new THREE.CircleGeometry(0.2, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.2, 24, 0);
 
