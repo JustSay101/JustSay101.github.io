@@ -2,13 +2,32 @@ import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
 
 const textureLoader = new THREE.TextureLoader();
+const iframe = document.getElementById("video-iframe");
+let videoElement;
+
+iframe.addEventListener("load", function () {
+    let contentWindow = (iframe.contentWindow || iframe.contentDocument)
+
+    if(iframe.contentDocument)
+    {
+        videoElement = iframe.contentDocument.getElementsByTag("video")[0];
+
+        var videoMaterial = new THREE.MeshBasicMaterial({
+            map: new THREE.VideoTexture(videoElement)
+        });
+    
+        var videoGeometry = new THREE.PlaneGeometry(0.6, 0.3375);
+
+        YTVideo = new THREE.Mesh(videoGeometry, videoMaterial);
+
+        anchor.group.add(YTVideo);
+
+        console.log("Video done");
+    }
+});
+
 let linkedIn, profileImage, YTVideo;
 let renderer, scene, camera;
-
-const YTVideoEmbed = document.createElement("Video");
-YTVideoEmbed.src = "https://www.youtube.com/148e5644-a86a-4a5a-ad24-10f3e6565fe7"
-YTVideoEmbed.crossorigin = "anonymous";
-document.body.appendChild(YTVideoEmbed);
 
 async function init() 
 {
@@ -26,12 +45,9 @@ async function init()
     const anchor = mindARThree.addAnchor(0);
     anchor.group.add(linkedIn);
     anchor.group.add(profileImage);
-    anchor.group.add(YTVideo);
 
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
-
-    YTVideoEmbed.play();
 
     function onUpdate()
     {
@@ -88,8 +104,8 @@ function onClick(event)
 
 function loadResources()
 {
-    var linkedInModel, profileImageGeometry, videoGeometry;
-    var linkedInMaterial, profileImageMaterial, videoMaterial;
+    var linkedInModel, profileImageGeometry;
+    var linkedInMaterial, profileImageMaterial;
 
     linkedInMaterial = new THREE.MeshBasicMaterial({
         transparent: false,
@@ -101,11 +117,6 @@ function loadResources()
         map: textureLoader.load("../assets/textures/profileImage.jpg")
     });
 
-    videoMaterial = new THREE.MeshBasicMaterial({
-        map: new THREE.VideoTexture(YTVideoEmbed)
-    });
-
-    videoGeometry = new THREE.PlaneGeometry(0.6, 0.3375);
     linkedInModel = new THREE.CircleGeometry(0.2, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.2, 24, 0);
 
@@ -131,7 +142,6 @@ function loadResources()
     
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
     profileImage = new THREE.Mesh(profileImageGeometry, profileImageMaterial);
-    YTVideo = new THREE.Mesh(videoGeometry, videoMaterial);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
