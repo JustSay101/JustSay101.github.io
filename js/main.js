@@ -94,7 +94,7 @@ function onClick(event)
                     window.open("https://www.linkedin.com/in/juho-tommola/");
                     break;
                 case YTVideoRaycastTarget:
-                    console.log("Pause/play YTVideoRaycastTargetEmbed");
+                    console.log("Pause/play Video");
                     if (cssVideo.paused)
                     {
                         cssVideo.play();
