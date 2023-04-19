@@ -1,9 +1,11 @@
 import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
 import { CSS3DObject } from 'https://threejs.org/examples/jsm/renderers/CSS3DRenderer.js';
+import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
+const fbxLoader = new FBXLoader()
 const textureLoader = new THREE.TextureLoader();
-let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject;
+let linkedIn, profileImage, profileName, YTVideoRaycastTarget, cssVideoObject;
 let cssRenderer, renderer, cssScene, scene, camera;
 let videoIFrame;
 let player;
@@ -83,6 +85,17 @@ async function init()
     cssVideoObject = new CSS3DObject(videoIFrame);
     cssVideoObject.element.style.pointerEvents = 'none';
     cssAnchor.group.add(cssVideoObject);
+
+    await fbxLoader.load
+    (
+        "../assets/models/nameModel.fbx",
+        function (file) 
+        { 
+            profileName = file
+            anchor.group.add(profileName);
+            console.log(file);
+        }
+    );
 
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
@@ -170,13 +183,14 @@ function loadResources()
     
     raycastTargetMaterial = new THREE.MeshBasicMaterial({
         transparent: true,
-        opacity: 0.4,
-        color: "red",
+        opacity: 0,
     });
 
     raycastTargetGeometry = new THREE.PlaneGeometry(0.8, 0.45);
     linkedInGeometry = new THREE.CircleGeometry(0.1, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.1, 24, 0);
+
+    //console.log(profileName);
 
     /*
         LEAVE THIS PART COMMENTED
