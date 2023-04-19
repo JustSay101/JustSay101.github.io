@@ -11,33 +11,36 @@ let isPlaying = false;
 
 loadPlayer();
   
-  function loadPlayer() { 
-    if (typeof(YT) == 'undefined' || typeof(YT.Player) == 'undefined') {
+function loadPlayer() 
+{ 
+if (typeof(YT) == 'undefined' || typeof(YT.Player) == 'undefined') {
+
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    window.onYouTubePlayerAPIReady = function() {
+    onYouTubePlayer();
+    };
+
+}
+
+else 
+{
+    onYouTubePlayer();
+}
+}
   
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  
-      window.onYouTubePlayerAPIReady = function() {
-        onYouTubePlayer();
-      };
-  
-    } else {
-  
-      onYouTubePlayer();
-  
-    }
-  }
-  
-  function onYouTubePlayer() {
+function onYouTubePlayer() 
+{
     player = new YT.Player('player', {
-      height: '360',
-      width: '640',
-      videoId: "hzLdZWIeq3c",
-      playerVars: { controls:1, showinfo: 0, rel: 0, showsearch: 0, iv_load_policy: 3 }
+        height: '360',
+        width: '640',
+        videoId: "hzLdZWIeq3c",
+        playerVars: { controls:1, showinfo: 0, rel: 0, showsearch: 0, iv_load_policy: 3 }
     });
-  }
+}
 
 function playVideo() 
 {
@@ -48,7 +51,6 @@ function pauseVideo()
 {
     player.pauseVideo();
 }
-
 
 function stopVideo() 
 {
@@ -93,6 +95,8 @@ async function init()
         cssVideoObject.scale.set(1.2, 1.2, 1.2);
         linkedIn.position.set(0, -0.55, 0);
         profileImage.position.set(0, 0.55, 0);
+        cssVideoObject.position.set(0, 0, 0.01);
+        YTVideoRaycastTarget.position.set(0,0,-0.01);
         //linkedIn.scale.set(5, 5, 5);
         //linkedIn.rotateX(3.141);
         renderer.render(scene, camera);
@@ -145,20 +149,7 @@ function onClick(event)
                     window.open("https://www.linkedin.com/in/juho-tommola/");
                     break;
                 case YTVideoRaycastTarget:
-                    /*
-                    if (!isPlaying)
-                    {
-                        console.log("Play Video");
-                        playVideo();
-                        isPlaying = true;
-                    }
-                    else
-                    {
-                        console.log("Stop Video");
-                        pauseVideo();
-                        isPlaying = false;
-                    }
-                    */
+                    onVideoClick();
                     break;
             }
         });
