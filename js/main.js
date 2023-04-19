@@ -8,13 +8,6 @@ const textureLoader = new THREE.TextureLoader();
 let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject;
 let cssRenderer, renderer, cssScene, scene, camera;
 const videoIFrame = document.getElementById("video-iframe");
-let cssVideo;
-
-document.onload = function() {
-    // Now we can access the video's properties safely
-    cssVideo = videoIFrame.contentWindow.getElementsByTagName('video')[0]
-    //window.alert(cssVideo);
-};
 
 /*
 iframe.addEventListener("load", function () {
@@ -31,6 +24,13 @@ iframe.addEventListener("load", function () {
 
 });
 */
+
+document.body.addEventListener ("Load", () => {
+    // Now we can access the video's properties safely
+    cssVideo = videoIFrame.contentWindow.getElementsByTagName('video')[0]
+    window.alert(cssVideo);
+    console.log("Perse");
+});
 
 async function init() 
 {
@@ -160,5 +160,6 @@ function loadResources()
 
 document.addEventListener("DOMContentLoaded", () => {
     init();
+
     window.addEventListener("click", onClick);
 }, { once: true });
