@@ -150,7 +150,7 @@ function loadResources()
     );
     */
     
-    
+    YTVideoRaycastTarget = new THREE.Mesh(raycastTargetGeometry, raycastTargetMaterial);
     linkedIn = new THREE.Mesh(linkedInGeometry, linkedInMaterial);
     profileImage = new THREE.Mesh(profileImageGeometry, profileImageMaterial);
 }
