@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
 
-const fbxLoader = new FBXLoader();
 const textureLoader = new THREE.TextureLoader();
 let linkedIn, profileImage, YTVideo;
 let renderer, scene, camera;
