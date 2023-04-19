@@ -3,7 +3,7 @@ import { MindARThree } from 'mindar-image-three';
 import { CSS3DObject } from 'https://threejs.org/examples/jsm/renderers/CSS3DRenderer.js';
 
 const textureLoader = new THREE.TextureLoader();
-const iframe = document.getElementById("video-iframe");
+//const iframe = document.getElementById("video-iframe");
 //const videoWindow = iframe.contentWindow;
 let linkedIn, profileImage, YTVideo;
 let cssRenderer, renderer, cssScene, scene, camera;
@@ -37,7 +37,7 @@ async function init()
     cssScene = mindARThree.cssScene;
     scene = mindARThree.scene;
     camera = mindARThree.camera;
-    cssRenderer = mindARThree.css3DRenderer;
+    cssRenderer = mindARThree.cssRenderer;
 
     const anchor = mindARThree.addAnchor(0);
     anchor.group.add(linkedIn);
