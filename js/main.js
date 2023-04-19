@@ -75,14 +75,14 @@ async function init()
     const anchor = mindARThree.addAnchor(0);
     anchor.group.add(linkedIn);
     anchor.group.add(profileImage);
-    //anchor.group.add(YTVideoRaycastTarget);
+    anchor.group.add(YTVideoRaycastTarget);
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
     videoIFrame = document.getElementById("iframe-video");
 
     cssVideoObject = new CSS3DObject(videoIFrame);
     cssVideoObject.element.style.zIndex = -1;
-    videoIFrame.addEventListener("click", onVideoClick);
+    //videoIFrame.addEventListener("click", onVideoClick);
 
     //cssVideoObject.element.style.zIndex = -10;
     cssAnchor.group.add(cssVideoObject);
