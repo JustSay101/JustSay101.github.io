@@ -10,6 +10,7 @@ let cssRenderer, renderer, cssScene, scene, camera;
 const videoIFrame = document.getElementById("player");
 let player;
 
+/*
 videoIFrame.addEventListener("load", function () {
 
     videoWindow = videoIFrame.contentWindow;
@@ -26,8 +27,8 @@ videoIFrame.addEventListener("load", function () {
     anchor.group.add(YTVideoRaycastTarget);
 
 });
+*/
 
-// 2. This code loads the IFrame Player API code asynchronously.
 loadPlayer();
   
   function loadPlayer() { 
@@ -48,7 +49,6 @@ loadPlayer();
   
     }
   }
-  
   
   function onYouTubePlayer() {
     player = new YT.Player('player', {
@@ -91,7 +91,7 @@ async function init()
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
     cssVideoObject = new CSS3DObject(videoIFrame);
-    cssVideoObject.element.style.zIndex = -10;
+    //cssVideoObject.element.style.zIndex = -10;
     cssAnchor.group.add(cssVideoObject);
 
     await mindARThree.start();
@@ -169,6 +169,8 @@ function loadResources()
     });
     
     raycastTargetMaterial = new THREE.MeshBasicMaterial({
+        transparent: true,
+        opacity: 0.4,
         color: "red",
     });
 
