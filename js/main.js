@@ -78,9 +78,11 @@ function onClick(event)
             switch (element.object)
             {
                 case linkedIn:
+                    console.log("Opening linked in");
                     window.open("https://www.linkedin.com/in/juho-tommola/");
                     break;
                 case video:
+                    console.log("Pause/play video");
                     if (video.paused)
                     {
                         video.play();
