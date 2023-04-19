@@ -18,9 +18,11 @@ body {
     max-height: 100vh;
     overflow: hidden;
 }
-/*
+
 #video-iframe {
-    display: none;
+    height: 1000px;
+    width: 1000px;
+    visibility: hidden;
   }
 
 /*
