@@ -93,21 +93,22 @@ async function init()
         { 
             profileName = file
             anchor.group.add(profileName);
-            console.log(file);
+            profileName.scale.set(0.01, 0.01, 0.01);
+            profileName.position.set(0.1, 0.45, 0);
         }
     );
+
+    linkedIn.position.set(0.4, -0.45, 0);
+    profileImage.position.set(-0.3, 0.45, 0);
+    cssVideoObject.position.set(-0.3, -0.45, -0.01);
+    YTVideoRaycastTarget.position.set(0, 0, 0.01);
 
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
 
     function onUpdate()
     {
-        profileName.scale.set(0.01, 0.01, 0.01);
-        profileName.position.set(0.1, 0.45, 0);
-        linkedIn.position.set(0.4, -0.45, 0);
-        profileImage.position.set(-0.3, 0.45, 0);
-        cssVideoObject.position.set(-0.3, -0.45, -0.01);
-        YTVideoRaycastTarget.position.set(0,0,0.01);
+        
         //linkedIn.scale.set(5, 5, 5);
         //linkedIn.rotateX(3.141);
         renderer.render(scene, camera);
