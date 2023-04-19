@@ -10,6 +10,11 @@ let renderer, scene, camera;
 
 async function init() 
 {
+    if (screen.orientation)
+    {
+        screen.orientation.lock("portrait");
+    }
+
     loadResources();
     /*
     const mindARThree = new window.MINDAR.IMAGE.MindARThree({
@@ -32,8 +37,9 @@ async function init()
     anchor.group.add(profileImage);
 
     await mindARThree.start();
-
     renderer.setAnimationLoop(onUpdate);
+
+    window.addEventListener("click", onClick);
 
     function onUpdate()
     {
@@ -130,5 +136,4 @@ document.addEventListener("DOMContentLoaded", () => {
     init();
 
     //window.addEventListener("click", onClick);
-    window.addEventListener("click", onClick);
 }, { once: true });
