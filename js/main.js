@@ -5,6 +5,8 @@ import {FBXLoader} from 'https://unpkg.com/three@0.126.0/examples/jsm/loaders/FB
 const fbxLoader = new FBXLoader();
 const textureLoader = new THREE.TextureLoader();
 let linkedIn, profileImage;
+let canvas = document.getElementById("canvas");
+let renderer, scene, camera;
 
 async function init() 
 {
@@ -21,8 +23,10 @@ async function init()
         imageTargetSrc: "../assets/targets/targets.mind"
     });
 
-    const { renderer, scene, camera } = mindARThree;
-    
+    renderer = mindARThree.renderer;
+    scene = mindARThree.scene;
+    camera = mindARThree.camera;
+
     const anchor = mindARThree.addAnchor(0);
     anchor.group.add(linkedIn);
     anchor.group.add(profileImage);
@@ -38,6 +42,41 @@ async function init()
         //linkedIn.scale.set(5, 5, 5);
         //linkedIn.rotateX(3.141);
         renderer.render(scene, camera);
+    }
+}
+
+function onClick(event)
+{
+    var raycaster = new THREE.Raycaster();
+    var mouse = new THREE.Vector2();
+    var isTouch = event.type.startsWith("touch");
+
+    if (isTouch)
+    {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    } 
+    
+    else 
+    {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    }
+
+    console.log(mouse);
+
+    raycaster.setFromCamera(mouse, camera);
+
+    var intersects = raycaster.intersectObjects(scene.children, true);
+
+    if (intersects.length > 0)
+    {
+        switch (intersects[0])
+        {
+            case linkedIn:
+                window.open("https://www.linkedin.com/in/juho-tommola/");
+                break;
+        }
     }
 }
 
@@ -85,4 +124,7 @@ function loadResources()
 
 document.addEventListener("DOMContentLoaded", () => {
     init();
+
+    window.addEventListener("click", onClick);
+    window.addEventListener("touchstart", onClick);
 }, { once: true });
