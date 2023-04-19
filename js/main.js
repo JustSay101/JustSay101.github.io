@@ -59,7 +59,7 @@ function loadResources()
 
     //linkedInModel = new THREE.PlaneGeometry(0.5, 0.5);
     //selfImageModel = new THREE.PlaneGeometry(1, 0.55);
-    
+
     
     fbxLoader.load
     (
@@ -77,7 +77,7 @@ function loadResources()
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
     selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
 
-    linkedIn.scale.set(0.1, 0.1, 0.1);
+    //linkedIn.scale.set(0.1, 0.1, 0.1);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
