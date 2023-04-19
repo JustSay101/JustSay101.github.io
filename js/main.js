@@ -1,16 +1,14 @@
 import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
+import { CSS3DObject } from 'https://threejs.org/examples/jsm/renderers/CSS3DRenderer.js';
 
 const textureLoader = new THREE.TextureLoader();
 const iframe = document.getElementById("video-iframe");
-const videoWindow = iframe.contentWindow;
+//const videoWindow = iframe.contentWindow;
 let linkedIn, profileImage, YTVideo;
-let renderer, scene, camera;
+let cssRenderer, renderer, cssScene, scene, camera;
 
-iframe.addEventListener('load', () => {
-    videoWindow.postMessage('ready', '*');
-});
-
+/*
 iframe.addEventListener("load", function () {
 
     var videoMaterial = new THREE.MeshBasicMaterial({
@@ -24,31 +22,12 @@ iframe.addEventListener("load", function () {
     anchor.group.add(YTVideo);
 
 });
+*/
 
-function playVideo() 
-{
-    videoWindow.postMessage("play", '*');
-}
-  
-function pauseVideo()
-{
-    videoWindow.postMessage("pause", '*');
-}
-  
-window.addEventListener("message", event => {
-    
-    if (event.source === videoWindow) 
-    {
-        switch (event.data)
-        {
-            case "ready":
-                break;
-            case "play":
-                break;
-            case "pause":
-                break;
-        }
-    }
+iframe.addEventListener("load", function () {
+
+    const cssObject = new CSS3DObject(document.querySelector("#video-iframe"));
+    cssAnchor.group.add(cssObject);
 });
 
 async function init() 
@@ -61,10 +40,13 @@ async function init()
     });
 
     renderer = mindARThree.renderer;
+    cssScene = mindARThree.cssScene;
     scene = mindARThree.scene;
     camera = mindARThree.camera;
+    cssRenderer = mindARThree.cssRenderer;
 
     const anchor = mindARThree.addAnchor(0);
+    const cssAnchor = mindARThree.addCSSAnchor(0);
     anchor.group.add(linkedIn);
     anchor.group.add(profileImage);
 
@@ -78,6 +60,7 @@ async function init()
         //linkedIn.scale.set(5, 5, 5);
         //linkedIn.rotateX(3.141);
         renderer.render(scene, camera);
+        cssRenderer.render(cssScene, camera);
     }
 }
 
