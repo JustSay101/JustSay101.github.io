@@ -8,7 +8,13 @@ const textureLoader = new THREE.TextureLoader();
 let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject;
 let cssRenderer, renderer, cssScene, scene, camera;
 const videoIFrame = document.querySelector("#video-iframe");
-const cssVideo = videoIFrame.querySelector("video");
+let cssVideo;
+
+videoIFrame.addEventListener('load', function() {
+    // Now we can access the video's properties safely
+    window.alert("Perse")
+    cssVideo = document.querySelector("#video-iframe video");
+  });
 
 /*
 iframe.addEventListener("load", function () {
