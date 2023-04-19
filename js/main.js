@@ -206,6 +206,5 @@ function loadResources()
 
 document.addEventListener("DOMContentLoaded", () => {
     init();
-
     window.addEventListener("click", onClick);
 }, { once: true });
