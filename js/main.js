@@ -140,13 +140,14 @@ function onClick(event)
                     //window.open("https://www.linkedin.com/in/juho-tommola/");
                     break;
                 case YTVideoRaycastTarget:
-                    console.log("Pause/play Video");
                     if (YT.PlayerState.PLAYING)
                     {
-                       playVideo();
+                        console.log("Play Video");
+                        playVideo();
                     }
                     else
                     {
+                        console.log("Stop Video");
                         stopVideo();
                     }
                     
