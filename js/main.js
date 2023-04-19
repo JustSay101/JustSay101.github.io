@@ -9,6 +9,7 @@ let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject;
 let cssRenderer, renderer, cssScene, scene, camera;
 let videoIFrame;
 let player;
+let isPlaying = false;
 
 /*
 videoIFrame.addEventListener("load", function () {
@@ -140,15 +141,17 @@ function onClick(event)
                     //window.open("https://www.linkedin.com/in/juho-tommola/");
                     break;
                 case YTVideoRaycastTarget:
-                    if (YT.PlayerState.PLAYING)
+                    if (!isPlaying)
                     {
                         console.log("Play Video");
                         playVideo();
+                        isPlaying = true;
                     }
                     else
                     {
                         console.log("Stop Video");
                         stopVideo();
+                        isPlaying = false;
                     }
                     
                     break;
