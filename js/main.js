@@ -33,8 +33,8 @@ async function init()
 
     function onUpdate()
     {
-        linkedIn.position.set(0, -0.5, 0);
-        profileImage.position.set(0, 0.5, 0);
+        linkedIn.position.set(0, -0.55, 0);
+        profileImage.position.set(0, 0.55, 0);
         //linkedIn.scale.set(5, 5, 5);
         //linkedIn.rotateX(3.141);
         renderer.render(scene, camera);
