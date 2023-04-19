@@ -13,7 +13,7 @@ let cssVideo;
 window.onload = function() {
     // Now we can access the video's properties safely
     cssVideo = document.querySelector("#video-iframe iframe");
-    window.alert(cssVideo);
+    //window.alert(cssVideo);
   };
 
 /*
@@ -134,7 +134,7 @@ function loadResources()
         color: "red",
     });
 
-    raycastTargetGeometry = new THREE.PlaneGeometry(0.5, 0,28125);
+    raycastTargetGeometry = new THREE.PlaneGeometry(1, 1);
     linkedInGeometry = new THREE.CircleGeometry(0.2, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.2, 24, 0);
 
