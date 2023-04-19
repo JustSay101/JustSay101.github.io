@@ -4,15 +4,17 @@ import { MindARThree } from 'mindar-image-three';
 const textureLoader = new THREE.TextureLoader();
 const iframe = document.getElementById("video-iframe");
 let videoElement;
+let linkedIn, profileImage, YTVideo;
+let renderer, scene, camera;
 
 iframe.addEventListener("load", function () {
     let contentWindow = (iframe.contentWindow || iframe.contentDocument)
 
     if(iframe.contentDocument)
     {
-        videoElement = iframe.contentDocument.getElementsByTag("video")[0];
+        const videoElement = iframe.contentDocument.getElementsByTag("video")[0];
 
-        var videoMaterial = new THREE.MeshBasicMaterial({
+        const videoMaterial = new THREE.MeshBasicMaterial({
             map: new THREE.VideoTexture(videoElement)
         });
     
@@ -25,9 +27,6 @@ iframe.addEventListener("load", function () {
         console.log("Video done");
     }
 });
-
-let linkedIn, profileImage, YTVideo;
-let renderer, scene, camera;
 
 async function init() 
 {
