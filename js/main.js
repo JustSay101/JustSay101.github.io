@@ -35,7 +35,7 @@ async function init()
 
     function onUpdate()
     {
-        linkedIn.position.set(0.5, 0, 0);
+        //linkedIn.position.set(0.5, 0, 0);
         //linkedIn.scale.set(5, 5, 5);
         //linkedIn.rotateX(3.141);
         renderer.render(scene, camera);
@@ -77,7 +77,7 @@ function loadResources()
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
     selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
 
-    //linkedIn.scale.set(0.1, 0.1, 0.1);
+    linkedIn.scale.set(0.1, 0.1, 0.1);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
