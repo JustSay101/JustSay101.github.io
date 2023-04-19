@@ -91,7 +91,7 @@ async function init()
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
     videoIFrame = document.getElementById("player");
-    cssVideoObject = new CSS3DObject(player);
+    cssVideoObject = new CSS3DObject(videoIFrame);
     //cssVideoObject.element.style.zIndex = -10;
     cssAnchor.group.add(cssVideoObject);
 
