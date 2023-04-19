@@ -10,22 +10,19 @@ let renderer, scene, camera;
 iframe.addEventListener("load", function () {
     let contentWindow = (iframe.contentWindow || iframe.contentDocument)
 
-    if(iframe.contentDocument)
-    {
-        const videoElement = iframe.contentDocument.getElementsByTag("video")[0];
-
-        const videoMaterial = new THREE.MeshBasicMaterial({
-            map: new THREE.VideoTexture(videoElement)
-        });
+    videoElement = iframe.contentWindow.getElementsByTag("video")[0];
     
-        var videoGeometry = new THREE.PlaneGeometry(0.6, 0.3375);
+    var videoMaterial = new THREE.MeshBasicMaterial({
+        map: new THREE.VideoTexture(videoElement)
+    });
 
-        YTVideo = new THREE.Mesh(videoGeometry, videoMaterial);
+    var videoGeometry = new THREE.PlaneGeometry(0.6, 0.3375);
 
-        anchor.group.add(YTVideo);
+    YTVideo = new THREE.Mesh(videoGeometry, videoMaterial);
 
-        console.log("Video done");
-    }
+    anchor.group.add(YTVideo);
+
+    console.log("Video done");
 });
 
 async function init() 
