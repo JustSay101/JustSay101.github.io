@@ -7,14 +7,14 @@ const textureLoader = new THREE.TextureLoader();
 //const videoWindow = iframe.contentWindow;
 let linkedIn, profileImage, YTVideoRaycastTarget, cssVideoObject;
 let cssRenderer, renderer, cssScene, scene, camera;
-const videoIFrame = document.querySelector("#video-iframe");
+const videoIFrame = document.getElementById("video-iframe");
 let cssVideo;
 
-window.onload = function() {
+document.onload = function() {
     // Now we can access the video's properties safely
-    cssVideo = document.querySelector("#video-iframe iframe");
+    cssVideo = videoIFrame.contentWindow.getElementsByTagName('video')[0]
     //window.alert(cssVideo);
-  };
+};
 
 /*
 iframe.addEventListener("load", function () {
