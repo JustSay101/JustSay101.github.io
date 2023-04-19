@@ -10,7 +10,6 @@ let cssRenderer, renderer, cssScene, scene, camera;
 const videoIFrame = document.getElementById("player");
 let player;
 
-
 videoIFrame.addEventListener("load", function () {
 
     videoWindow = videoIFrame.contentWindow;
@@ -59,22 +58,6 @@ loadPlayer();
       playerVars: { controls:1, showinfo: 0, rel: 0, showsearch: 0, iv_load_policy: 3 }
     });
   }
-  
-var done = false;
-
-function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING && !done) {
-    // setTimeout(stopVideo, 6000);
-    done = true;
-    } else if (event.data == YT.PlayerState.ENDED) {
-    location.reload();
-    }
-}
-
-function onPlayerReady(event) {
-    event.target.playVideo();
-  }
-
 
 function playVideo() 
 {
@@ -158,6 +141,10 @@ function onClick(event)
                     if (YT.PlayerState.PLAYING)
                     {
                        playVideo();
+                    }
+                    else
+                    {
+                        stopVideo();
                     }
                     
                     break;
