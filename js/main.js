@@ -11,7 +11,6 @@ const YTVideoEmbed = document.createElement("Video");
 YTVideoEmbed.src = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 YTVideoEmbed.crossorigin = "anonymous";
 document.body.appendChild(YTVideoEmbed);
-const videoTexture = new THREE.VideoTexture(YTVideoEmbed);
 
 async function init() 
 {
@@ -105,7 +104,7 @@ function loadResources()
     });
 
     videoMaterial = new THREE.MeshBasicMaterial({
-        map: videoTexture
+        map: new THREE.VideoTexture(YTVideoEmbed)
     });
 
     videoGeometry = new THREE.PlaneGeometry(0.5, 0.28125);
