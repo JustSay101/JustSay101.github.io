@@ -127,7 +127,7 @@ function loadResources()
         opacity: 0.6
     });
 
-    raycastTargetGeometry = new THREE.PlaneGeometry(0.5, 0.28125);
+    raycastTargetGeometry = new THREE.PlaneGeometry(1, 1);
     linkedInGeometry = new THREE.CircleGeometry(0.2, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.2, 24, 0);
 
