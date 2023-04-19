@@ -45,6 +45,7 @@ async function init()
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
     cssVideo = new CSS3DObject(document.querySelector("#video-iframe"));
+    cssVideo.element.style.zIndex = -10;
     cssAnchor.group.add(cssVideo);
 
     await mindARThree.start();
