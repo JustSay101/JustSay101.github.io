@@ -158,5 +158,5 @@ function loadResources()
 
 document.addEventListener("DOMContentLoaded", () => {
     init();
-    touchCanvas.addEventListener("click", onClick);
+    window.addEventListener("click", onClick);
 }, { once: true });
