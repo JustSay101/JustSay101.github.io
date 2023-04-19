@@ -124,8 +124,6 @@ function loadResources()
     
     raycastTargetMaterial = new THREE.MeshBasicMaterial({
         color: "red",
-        transparent: true,
-        opacity: 0.6
     });
 
     raycastTargetGeometry = new THREE.PlaneGeometry(1, 1);
