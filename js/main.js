@@ -71,8 +71,10 @@ function onClick(event)
 
     if (intersects.length > 0)
     {
+        console.log("Intersected with something")
+
         intersects.forEach(element => {
-            switch (element)
+            switch (element.object)
             {
                 case linkedIn:
                     window.open("https://www.linkedin.com/in/juho-tommola/");
@@ -127,6 +129,6 @@ function loadResources()
 document.addEventListener("DOMContentLoaded", () => {
     init();
 
-    window.addEventListener("click", onClick);
+    //window.addEventListener("click", onClick);
     window.addEventListener("touchstart", onClick);
 }, { once: true });
