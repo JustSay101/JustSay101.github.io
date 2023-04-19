@@ -57,10 +57,10 @@ function loadResources()
         map: textureLoader.load("../assets/textures/selfImage.jpg")
     });
 
-    //linkedInModel = new THREE.PlaneGeometry(0.5, 0.5);
-    //selfImageModel = new THREE.PlaneGeometry(1, 0.55);
+    linkedInModel = new THREE.CircleGeometry(0.5, 24, 0);
+    selfImageModel = new THREE.CircleGeometry(1, 0.55);
 
-    
+    /*
     fbxLoader.load
     (
         "../assets/models/linkedin.fbx",
@@ -72,7 +72,7 @@ function loadResources()
         "../assets/models/selfImage.fbx",
         function (file) { selfImageModel = file }
     );
-    
+    */
     
     linkedIn = new THREE.Mesh(linkedInModel, linkedInMaterial);
     selfImage = new THREE.Mesh(selfImageModel, selfImageMaterial);
