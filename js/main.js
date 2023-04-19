@@ -8,9 +8,9 @@ let linkedIn, profileImage;
 let canvas = document.getElementById("canvas");
 let renderer, scene, camera;
 
-const video = document.createElement("video");
-video.src = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-video.crossorigin = 'anonymous';
+const YTVideoEmbed = document.createElement("Video");
+YTVideoEmbed.src = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+YTVideoEmbed.crossorigin = 'anonymous';
 
 async function init() 
 {
@@ -81,15 +81,15 @@ function onClick(event)
                     console.log("Opening linked in");
                     window.open("https://www.linkedin.com/in/juho-tommola/");
                     break;
-                case video:
-                    console.log("Pause/play video");
-                    if (video.paused)
+                case YTVideoEmbed:
+                    console.log("Pause/play YTVideoEmbed");
+                    if (YTVideoEmbed.paused)
                     {
-                        video.play();
+                        YTVideoEmbed.play();
                     }
                     else
                     {
-                        video.pause();
+                        YTVideoEmbed.pause();
                     }
                     break;
             }
