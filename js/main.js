@@ -28,9 +28,9 @@ iframe.addEventListener("load", function () {
 
 console.log(videoIFrame);
 
-var paska = videoIFrame.querySelector("iframe");
-cssVideo = paska.contentWindow.getElementsByTagName('video')[0]
-window.alert(cssVideo);
+//var paska = videoIFrame.querySelector("iframe");
+//cssVideo = paska.contentWindow.getElementsByTagName('video')[0]
+//window.alert(cssVideo);
 
 document.body.addEventListener ("Load", () => {
     // Now we can access the video's properties safely
@@ -55,7 +55,7 @@ async function init()
     const anchor = mindARThree.addAnchor(0);
     anchor.group.add(linkedIn);
     anchor.group.add(profileImage);
-    anchor.group.add(YTVideoRaycastTarget);
+    //anchor.group.add(YTVideoRaycastTarget);
 
     const cssAnchor = mindARThree.addCSSAnchor(0);
     cssVideoObject = new CSS3DObject(videoIFrame);
