@@ -9,7 +9,7 @@ let renderer, scene, camera;
 
 const YTVideoEmbed = document.createElement("Video");
 YTVideoEmbed.src = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-YTVideoEmbed.crossorigin = 'anonymous';
+YTVideoEmbed.crossorigin = "anonymous";
 document.body.appendChild(YTVideoEmbed);
 
 async function init() 
@@ -29,6 +29,8 @@ async function init()
     anchor.group.add(linkedIn);
     anchor.group.add(profileImage);
     anchor.group.add(YTVideo);
+
+    const videoTexture = new THREE.VideoTexture(YTVideoEmbed);
 
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
@@ -69,7 +71,7 @@ function onClick(event)
             switch (element.object)
             {
                 case linkedIn:
-                    console.log("Opening linked in");
+                    console.log("Opening linkedIn");
                     window.open("https://www.linkedin.com/in/juho-tommola/");
                     break;
                 case YTVideo:
@@ -104,7 +106,7 @@ function loadResources()
     });
 
     videoMaterial = new THREE.MeshBasicMaterial({
-        map: new THREE.VideoTexture(YTVideoEmbed)
+        map: videoTexture
     });
 
     videoGeometry = new THREE.PlaneGeometry(0.5, 0.28125);
