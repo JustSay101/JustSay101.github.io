@@ -24,12 +24,6 @@ iframe.addEventListener("load", function () {
 });
 */
 
-iframe.addEventListener("load", function () {
-
-    const cssObject = new CSS3DObject(document.querySelector("#video-iframe"));
-    cssAnchor.group.add(cssObject);
-});
-
 async function init() 
 {
     loadResources();
@@ -43,12 +37,15 @@ async function init()
     cssScene = mindARThree.cssScene;
     scene = mindARThree.scene;
     camera = mindARThree.camera;
-    cssRenderer = mindARThree.cssRenderer;
+    cssRenderer = mindARThree.css3DRenderer;
 
     const anchor = mindARThree.addAnchor(0);
-    const cssAnchor = mindARThree.addCSSAnchor(0);
     anchor.group.add(linkedIn);
     anchor.group.add(profileImage);
+
+    const cssAnchor = mindARThree.addCSSAnchor(0);
+    const cssObject = new CSS3DObject(document.querySelector("#video-iframe"));
+    cssAnchor.group.add(cssObject);
 
     await mindARThree.start();
     renderer.setAnimationLoop(onUpdate);
