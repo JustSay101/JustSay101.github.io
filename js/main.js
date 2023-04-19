@@ -130,5 +130,5 @@ document.addEventListener("DOMContentLoaded", () => {
     init();
 
     //window.addEventListener("click", onClick);
-    window.addEventListener("touchstart", onClick);
+    window.addEventListener("click", onClick);
 }, { once: true });
