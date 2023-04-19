@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
-import {FBXLoader} from 'https://unpkg.com/three@0.126.0/examples/jsm/loaders/FBXLoader.js';
 
 const fbxLoader = new FBXLoader();
 const textureLoader = new THREE.TextureLoader();
@@ -8,7 +7,7 @@ let linkedIn, profileImage, YTVideo;
 let renderer, scene, camera;
 
 const YTVideoEmbed = document.createElement("Video");
-YTVideoEmbed.src = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+YTVideoEmbed.src = "https://www.youtube.com/embed/dQw4w9WgXcQ"
 YTVideoEmbed.crossorigin = "anonymous";
 document.body.appendChild(YTVideoEmbed);
 
