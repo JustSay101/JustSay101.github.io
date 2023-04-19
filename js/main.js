@@ -174,7 +174,7 @@ function loadResources()
         color: "red",
     });
 
-    raycastTargetGeometry = new THREE.PlaneGeometry(0.7, 0.5);
+    raycastTargetGeometry = new THREE.PlaneGeometry(0.8, 0.45);
     linkedInGeometry = new THREE.CircleGeometry(0.1, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.1, 24, 0);
 
