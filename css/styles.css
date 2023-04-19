@@ -36,11 +36,3 @@ body {
     width: 100%;
     height: 100vh;
 }
-/*
-body video[style] {
-    display: block;
-    position: unset !important;
-    width: 100% !important;
-    height: 100vh !important;
-}
-*/
