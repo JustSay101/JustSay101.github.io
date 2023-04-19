@@ -189,7 +189,7 @@ function loadResources()
     });
 
     raycastTargetGeometry = new THREE.PlaneGeometry(0.8, 0.45);
-    linkedInGeometry = new THREE.CircleGeometry(0.2, 24, 0);
+    linkedInGeometry = new THREE.CircleGeometry(0.15, 24, 0);
     profileImageGeometry = new THREE.CircleGeometry(0.1, 24, 0);
     
     YTVideoRaycastTarget = new THREE.Mesh(raycastTargetGeometry, raycastTargetMaterial);
