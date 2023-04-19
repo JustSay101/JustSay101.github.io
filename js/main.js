@@ -8,6 +8,10 @@ let linkedIn, profileImage;
 let canvas = document.getElementById("canvas");
 let renderer, scene, camera;
 
+const video = document.createElement("video");
+video.src = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+video.crossOrigin = 'anonymous';
+
 async function init() 
 {
     if (screen.orientation)
@@ -51,6 +55,10 @@ async function init()
     }
 }
 
+/*
+    onClick event function to check if the tapped position intesects with any object.
+    This function also checks what was intersected, and then executes functionality depending on that.
+*/
 function onClick(event)
 {
     var raycaster = new THREE.Raycaster();
@@ -58,12 +66,6 @@ function onClick(event)
     var isTouch = event.type.startsWith("touch");
 
     if (isTouch)
-    {
-        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    } 
-    
-    else 
     {
         mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
         mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -77,13 +79,21 @@ function onClick(event)
 
     if (intersects.length > 0)
     {
-        console.log("Intersected with something")
-
         intersects.forEach(element => {
             switch (element.object)
             {
                 case linkedIn:
                     window.open("https://www.linkedin.com/in/juho-tommola/");
+                    break;
+                case video:
+                    if (video.paused)
+                    {
+                        video.play();
+                    }
+                    else
+                    {
+                        video.pause();
+                    }
                     break;
             }
         });
