@@ -5,7 +5,6 @@ import {FBXLoader} from 'https://unpkg.com/three@0.126.0/examples/jsm/loaders/FB
 const fbxLoader = new FBXLoader();
 const textureLoader = new THREE.TextureLoader();
 let linkedIn, profileImage, YTVideo;
-let canvas = document.getElementById("canvas");
 let renderer, scene, camera;
 
 const YTVideoEmbed = document.createElement("Video");
@@ -35,6 +34,8 @@ async function init()
     renderer.setAnimationLoop(onUpdate);
 
     window.addEventListener("click", onClick);
+
+    YTVideoEmbed.play();
 
     function onUpdate()
     {
@@ -77,7 +78,7 @@ function onClick(event)
                     console.log("Opening linked in");
                     window.open("https://www.linkedin.com/in/juho-tommola/");
                     break;
-                case YTVideoEmbed:
+                case YTVideo:
                     console.log("Pause/play YTVideoEmbed");
                     if (YTVideoEmbed.paused)
                     {
