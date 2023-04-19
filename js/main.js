@@ -57,7 +57,7 @@ function loadResources()
     });
 
     linkedInModel = new THREE.CircleGeometry(0.2, 24, 0);
-    profileImageGeometry = new THREE.PlaneGeometry(0.4, 0.4);
+    profileImageGeometry = new THREE.CircleGeometry(0.2, 24, 0);
 
     /*
         LEAVE THIS PART COMMENTED
